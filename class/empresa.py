@@ -2,7 +2,7 @@ from persona import persona, cliente, empleado
 from seguros import SOAT, vida, hogar, seguro, desempleo, automovil
 
 class aseguradora:
-    def __init__(self, nombre: str, empleados: list["Empleados"] = []):
+    def __init__(self, nombre: str, empleados: list["empleado"] = []):
         self.empleados = empleados
         self.nombre = nombre
 
