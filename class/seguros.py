@@ -88,3 +88,19 @@ class automovil(seguro):
         automovil.modelo = input("Ingrese el modelo del vehículo: ")
         automovil.marca = input("Ingrese la marca del vehículo: ")
         automovil.color = input("Ingrese el color del vehículo: ")
+
+class desempleo(seguro):
+    def __init__(self, precio, cobertura, edad, sexo, estado_civil):
+        super().__init__()
+        self.edad = edad
+        self.sexo = sexo
+        self.estado_civil = estado_civil
+
+    def calcular_precio(self):
+        pass
+
+    def ingresar_datos(self):
+        desempleo.cobertura = input("Ingrese la cobertura: ")
+        desempleo.edad = input("Ingrese su edad: ")
+        desempleo.sexo = input("Ingrese su sexo: ")
+        desempleo.estado_civil = input("Ingrese su estado civil: ")

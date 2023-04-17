@@ -14,11 +14,17 @@ class cliente(persona):
         self.peso = peso
         self.estatura = estatura
     
-class vendedor(persona):
+class empleado(persona):
     def __init__(self, nombre, edad, cedula, sueldo, comision):
         super().__init__(nombre, edad, cedula)
         self.sueldo = sueldo
         self.comision = comision
     
+    def calcularGanancia(self):
+        return self.sueldo + self.comision
     
+    def valorAsegurado(self):
+        return 0
+    
+
 
