@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
-
+from persona import Persona,Cliente
 
 class Seguro(ABC):
-    def __init__(self, precio: float, cobertura: str):
-        self.precio = precio
+    def __init__(self, mensualidad: float, cobertura: str,valor_asegurado: float,cliente:"Cliente"):
+        self.mensualidad = mensualidad
         self.cobertura = cobertura
+        self.valor_asegurado = valor_asegurado
+        self.cliente=cliente
 
     @property
     def precio(self) -> float:
@@ -23,8 +25,8 @@ class Seguro(ABC):
 
 
 class SOAT(Seguro):
-    def __init__(self, precio: float, cobertura: str, placa: str, modelo: str, marca: str, color: str) -> None:
-        super().__init__(precio, cobertura)
+    def __init__(self, mensualidad: float, cobertura: str,valor_asegurado: float,cliente:"Cliente", placa: str, modelo: str, marca: str, color: str) -> None:
+        super().__init__(mensualidad, cobertura, valor_asegurado, cliente)
         self.placa = placa
         self.modelo = modelo
         self.marca = marca
@@ -43,30 +45,25 @@ class SOAT(Seguro):
 
 
 class Vida(Seguro):
-    def __init__(self, precio: float, cobertura: str, edad: int, sexo: str, estado_civil: str):
-        super().__init__(precio, cobertura)
-        self.edad = edad
-        self.sexo = sexo
-        self.estado_civil = estado_civil
+    def __init__(self, mensualidad: float,valor_asegurado: float,cliente:"Cliente", cobertura: str,beneficiarios:list["Persona"]):
+        super().__init__(mensualidad, cobertura, valor_asegurado, cliente)
+        self.beneficiarios=beneficiarios
 
     def calcular_precio(self) -> float:
         pass
 
     def ingresar_datos(self):
         self.cobertura = input("Ingrese la cobertura: ")
-        self.edad = input("Ingrese su edad: ")
-        self.sexo = input("Ingrese su sexo: ")
-        self.estado_civil = input("Ingrese su estado civil: ")
-
+        
 
 class Hogar(Seguro):
-    def __init__(self, precio: float, cobertura: str, direccion: str, metros_cuadrados: float, numero_habitaciones: int, numero_banos: int, arriendo: float):
-        super().__init__(precio, cobertura)
+    def __init__(self, mensualidad: float, cobertura: str,valor_asegurado: float,cliente:"Cliente", direccion: str, area: float, numero_habitaciones: int, lavabo: int, estrato: int):
+        super().__init__(mensualidad, cobertura, valor_asegurado, cliente)
         self.direccion = direccion
-        self.metros_cuadrados = metros_cuadrados
+        self.area =area
         self.numero_habitaciones = numero_habitaciones
-        self.numero_banos = numero_banos
-        self.arriendo = arriendo
+        self.labavo = lavabo
+        self.estrato=estrato
 
     def calcular_precio(self):
         pass
@@ -77,13 +74,13 @@ class Hogar(Seguro):
         self.metros_cuadrados = input("Ingrese los metros cuadrados: ")
         self.numero_habitaciones = input(
             "Ingrese el número de habitaciones: ")
-        self.numero_banos = input("Ingrese el número de baños: ")
-        self.arriendo = input("Ingrese el arriendo (en pesos): ")
+        self.labavo = input("Ingrese el número de baños: ")
+        self.estrato = input("Ingrese el estrato: ")
 
 
 class Automovil(Seguro):
-    def __init__(self, precio: float, cobertura: str, placa: str, modelo: str, marca: str, color: str):
-        super().__init__(precio, cobertura)
+    def __init__(self, mensualidad: float, cobertura: str,valor_asegurado: float,cliente:"Cliente", placa: str, modelo: str, marca: str, color: str):
+        super().__init__(mensualidad, cobertura, valor_asegurado, cliente)
         self.placa = placa
         self.modelo = modelo
         self.marca = marca
@@ -101,17 +98,18 @@ class Automovil(Seguro):
 
 
 class Desempleo(Seguro):
-    def __init__(self, precio, cobertura, edad, sexo, estado_civil):
-        super().__init__(precio, cobertura)
-        self.edad = edad
-        self.sexo = sexo
-        self.estado_civil = estado_civil
-
+    def __init__(self, mensualidad: float, cobertura: str,valor_asegurado: float,cliente:"Cliente",profesion:str,lugar_trabajo:str,sueldo:float):
+        super().__init__(mensualidad, cobertura, valor_asegurado, cliente)
+        self.profesion=profesion
+        self.lugar_trabajo=lugar_trabajo
+        self.sueldo=sueldo
+   
     def calcular_precio(self):
         pass
 
     def ingresar_datos(self):
         self.cobertura = input("Ingrese la cobertura: ")
-        self.edad = input("Ingrese su edad: ")
-        self.sexo = input("Ingrese su sexo: ")
-        self.estado_civil = input("Ingrese su estado civil: ")
+        self.profesion= input ("Ingrese su profesion")
+        self.lugar_trabajo= input("Ingrese su lugar de trabajo")
+        self.suedo= input("Ingrese su sueldo")
+

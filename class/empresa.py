@@ -2,9 +2,10 @@ from persona import Empleado
 
 
 class Aseguradora:
-    def __init__(self, nombre: str, empleados: list["Empleado"] = None):
+    def __init__(self, id: int, nombre: str, empleados: list["Empleado"] = None):
         if empleados is None:
             empleados = []
+        self.id=id
         self.empleados = empleados
         self.nombre = nombre
 

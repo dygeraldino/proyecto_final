@@ -1,30 +1,34 @@
+from seguros import Seguro
 class Persona:
-    def __init__(self, nombre: str, edad: int, cedula: int) -> None:
+    def __init__(self, nombre: str, edad: int, cedula: int,genero: str, estado_civil: str) -> None:
         self.nombre = nombre
         self.edad = edad
         self.cedula = cedula
+        self.genero = genero
+        self.estado_civil = estado_civil
 
 
 class Cliente(Persona):
-    def __init__(self, nombre: str, edad: int, cedula: int, direccion: str, telefono: str, correo: str, peso: float, estatura: float):
+    def __init__(self, nombre: str, edad: int, cedula: int, direccion: str, telefono: int, correo: str,peso: float, altura: float,producto:list["Seguro"]):
         super().__init__(nombre, edad, cedula)
         self.direccion = direccion
         self.telefono = telefono
         self.correo = correo
-        self.peso = peso
-        self.estatura = estatura
+        self.peso=peso
+        self.altura=altura
+        self.producto=producto
 
 
 class Empleado(Persona):
-    def __init__(self, nombre: str, edad: int, cedula: int, sueldo: float, comision: float):
+    def __init__(self, nombre: str, edad: int, cedula: int, id:int, sueldo: float):
         super().__init__(nombre, edad, cedula)
+        self.id=id
         self.sueldo = sueldo
-        self.comision = comision
 
     @property
-    def ganancia(self) -> float:
-        return self.sueldo + self.comision
+    def comision(self) -> float:
+        pass
 
     @property
     def valor_asegurado(self) -> float:
-        return 0.0
+        pass
