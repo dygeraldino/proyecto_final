@@ -1,0 +1,98 @@
+{
+    "1989372798": {
+        "nombre": "Marco Vega Fuentes",
+        "edad": 27,
+        "genero": "M",
+        "estado_civil": "Soltero",
+        "sueldo": 1630000.0,
+        "correo": "mvegafuentes@sgarantizada.com.co",
+        "comision": 0.0,
+        "clientes": {},
+        "id": 1000001
+    },
+    "1873213827": {
+        "nombre": "Marta Lirio Fonseca",
+        "edad": 25,
+        "genero": "F",
+        "estado_civil": "Casada",
+        "sueldo": 1700000.0,
+        "correo": "mliriofonsec@sgarantizada.com.co",
+        "comision": 0.0,
+        "clientes": {},
+        "id": 1000002
+    },
+    "1284189348": {
+        "nombre": "Manuel Torres Florez",
+        "edad": 30,
+        "genero": "M",
+        "estado_civil": "Casado",
+        "sueldo": 2000000.0,
+        "correo": "mtorresflore@sgarantizada.com.co",
+        "comision": 0.0,
+        "clientes": {},
+        "id": 1000003
+    },
+    "1983453894": {
+        "nombre": "Marcela Aguirre Montero",
+        "edad": 20,
+        "genero": "F",
+        "estado_civil": "Casada",
+        "sueldo": 1400000.0,
+        "correo": "maguirremont@sgarantizada.com.co",
+        "comision": 0.0,
+        "clientes": {},
+        "id": 1000004
+    },
+    "1292842903": {
+        "nombre": "Milan Toro Espinosa",
+        "edad": 21,
+        "genero": "M",
+        "estado_civil": "Soltero",
+        "sueldo": 1300000.0,
+        "correo": "mtoroespinos@sgarantizada.com.co",
+        "comision": 0.0,
+        "clientes": {
+            "1243658663": {
+                "nombre": "Juan Torres Lopez",
+                "edad": 20,
+                "genero": "M",
+                "estado_civil": "Soltero",
+                "direccion": "Calle 15 # 46 - 108",
+                "telefono": "3158980011",
+                "correo": "jtorres777@gmail.com",
+                "peso": 75.0,
+                "estatura": 1.7,
+                "productos": {}
+            },
+            "4934889": {
+                "nombre": "Manuela Beltran Padilla",
+                "edad": 40,
+                "genero": "F",
+                "estado_civil": "Casada",
+                "direccion": "Calle 13 # 30 - 88",
+                "telefono": "3008902134",
+                "correo": "manuelitabp99@hotmail.com",
+                "peso": 60.2,
+                "estatura": 1.58,
+                "productos": {
+                    "9907900": {
+                        "precio": 700000.0,
+                        "cobertura": "Incapacidad, accidente, enfermedad, tratamiento medico, muerte prematura"
+                    }
+                }
+            }
+        },
+        "id": 1000005
+    },
+    "1098230432": {
+        "nombre": "Andrea Manjarrez Figueroa",
+        "edad": 23,
+        "genero": "F",
+        "estado_civil": "Soltera",
+        "sueldo": 1800000.0,
+        "correo": "amanjarrezfi@sgarantizada.com.co",
+        "comision": 0,
+        "clientes": {},
+        "id": 1000006
+    }
+}

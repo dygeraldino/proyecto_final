@@ -1,7 +1,5 @@
 from typing import List, Optional
-from classes.empresa import *
-from classes.persona import *
-from classes.seguros import *
+from classes import *
 
 
 def main():
