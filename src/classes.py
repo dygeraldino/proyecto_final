@@ -145,6 +145,10 @@ class Empleado(Persona):
     def id(self) -> int:
         return self.__id
 
+    @id.setter
+    def id(self, id: int) -> None:
+        self.__id = id
+
     def agregar_cliente(self, cliente: Cliente) -> None:
         self.__clientes.append(cliente)
 
@@ -153,11 +157,13 @@ class Empleado(Persona):
 
 
 class Seguro(ABC):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente) -> None:
+    def __init__(self, precio: float, cobertura: str, cliente: Cliente, tipo: str) -> None:
         self._precio = precio
         self._valor_asegurado = 0
         self._cobertura = cobertura
         self._cliente = cliente
+        cliente.agregar_producto(self)
+        self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
 
     @property
@@ -188,44 +194,160 @@ class Seguro(ABC):
     def cliente(self) -> Cliente:
         return self._cliente
 
+    @cliente.setter
+    def cliente(self, cliente: Cliente) -> None:
+        self._cliente = cliente
+
     @property
     def id(self) -> int:
         return self._id
 
+    @property
+    def tipo(self) -> str:
+        return self._tipo
+
+    @tipo.setter
+    def tipo(self, tipo: str) -> None:
+        self._tipo = tipo
+
 
 class SOAT(Seguro):
     def __init__(self, cobertura: str, cliente: Cliente, placa: str, modelo: str, marca: str, color: str) -> None:
-        super().__init__(501700, cobertura, cliente)
+        super().__init__(501700, cobertura, cliente, "SOAT")
         self.__placa = placa
         self.__modelo = modelo
         self.__marca = marca
+        self.__color = color
+
+    @property
+    def placa(self) -> str:
+        return self.__placa
+
+    @placa.setter
+    def placa(self, placa: str) -> None:
+        self.__placa = placa
+
+    @property
+    def marca(self) -> str:
+        return self.__marca
+
+    @marca.setter
+    def marca(self, marca: str) -> None:
+        self.__marca = marca
+
+    @property
+    def modelo(self) -> str:
+        return self.__modelo
+
+    @modelo.setter
+    def modelo(self, modelo: str) -> None:
+        self.__modelo = modelo
+
+    @property
+    def color(self) -> str:
+        return self.__color
+
+    @color.setter
+    def color(self, color: str) -> None:
         self.__color = color
 
 
 class Vida(Seguro):
     def __init__(self, precio: float, cobertura: str, cliente: Cliente):
-        super().__init__(precio, cobertura, cliente)
+        super().__init__(precio, cobertura, cliente, "Vida")
 
 
 class Hogar(Seguro):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente, direccion: str, metros_cuadrados: float, numero_habitaciones: int, numero_banos: int, arriendo: float):
-        super().__init__(precio, cobertura, cliente)
+    def __init__(self, precio: float, cobertura: str, cliente: Cliente, direccion: str, metros_cuadrados: float, numero_habitaciones: int, numero_banos: int, valor: float):
+        super().__init__(precio, cobertura, cliente, "Hogar")
         self.__direccion = direccion
         self.__metros_cuadrados = metros_cuadrados
         self.__numero_habitaciones = numero_habitaciones
         self.__numero_banos = numero_banos
-        self.__arriendo = arriendo
+        self.__valor = valor
+
+    @property
+    def direccion(self) -> str:
+        return self.__direccion
+
+    @direccion.setter
+    def direccion(self, direccion: str) -> None:
+        self.__direccion = direccion
+
+    @property
+    def metros_cuadrados(self) -> float:
+        return self.__metros_cuadrados
+
+    @metros_cuadrados.setter
+    def metros_cuadrados(self, metros_cuadrados: float) -> None:
+        self.__metros_cuadrados = metros_cuadrados
+
+    @property
+    def numero_habitaciones(self) -> int:
+        return self.__numero_habitaciones
+
+    @numero_habitaciones.setter
+    def numero_habitaciones(self, numero_habitaciones: int) -> None:
+        self.__numero_habitaciones = numero_habitaciones
+
+    @property
+    def numero_banos(self) -> int:
+        return self.__numero_banos
+
+    @numero_banos.setter
+    def numero_banos(self, numero_banos: int) -> None:
+        self.__numero_banos = numero_banos
+
+    @property
+    def valor(self) -> float:
+        return self.__valor
+
+    @valor.setter
+    def valor(self, valor: float) -> None:
+        self.__valor = valor
 
 
 class Automovil(Seguro):
     def __init__(self, precio: float, cobertura: str, cliente: Cliente, placa: str, modelo: str, marca: str, color: str):
-        super().__init__(precio, cobertura, cliente)
+        super().__init__(precio, cobertura, cliente, "Automovil")
         self.__placa = placa
         self.__modelo = modelo
         self.__marca = marca
         self.__color = color
 
+    @property
+    def placa(self) -> str:
+        return self.__placa
+
+    @placa.setter
+    def placa(self, placa: str) -> None:
+        self.__placa = placa
+
+    @property
+    def marca(self) -> str:
+        return self.__marca
+
+    @marca.setter
+    def marca(self, marca: str) -> None:
+        self.__marca = marca
+
+    @property
+    def modelo(self) -> str:
+        return self.__modelo
+
+    @modelo.setter
+    def modelo(self, modelo: str) -> None:
+        self.__modelo = modelo
+
+    @property
+    def color(self) -> str:
+        return self.__color
+
+    @color.setter
+    def color(self, color: str) -> None:
+        self.__color = color
+
 
 class Desempleo(Seguro):
     def __init__(self, precio: float, cobertura: str, cliente: Cliente):
-        super().__init__(precio, cobertura, cliente)
+        super().__init__(precio, cobertura, cliente, "Desempleo")
