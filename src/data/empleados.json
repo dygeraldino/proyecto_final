@@ -52,18 +52,6 @@
         "correo": "mtoroespinos@sgarantizada.com.co",
         "comision": 0.0,
         "clientes": {
-            "1243658663": {
-                "nombre": "Juan Torres Lopez",
-                "edad": 20,
-                "genero": "M",
-                "estado_civil": "Soltero",
-                "direccion": "Calle 15 # 46 - 108",
-                "telefono": "3158980011",
-                "correo": "jtorres777@gmail.com",
-                "peso": 75.0,
-                "estatura": 1.7,
-                "productos": {}
-            },
             "4934889": {
                 "nombre": "Manuela Beltran Padilla",
                 "edad": 40,

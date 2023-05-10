@@ -10,6 +10,8 @@ def create_json(name: str) -> dict:
         json.dump(data, file)
         return True
 
+# Agrega empleados a la base de datos
+
 
 def add_empleado(empleado: Empleado) -> None/bool:
     with open(f'src/data/empleados.json', 'r') as file:
@@ -45,17 +47,22 @@ def add_correo(correo: str) -> None/bool:
     return True
 
 
+# Agrega clientes a la base de datos
 def add_cliente(cliente: Cliente, cedula_empleado: int) -> None:
     with open(f'src/data/empleados.json', 'r') as file:
         data = json.load(file)
     with open(f'src/data/clientes.json', 'r') as file1:
         data1 = json.load(file1)
     if f'{cliente.cedula}' in data[f'{cedula_empleado}']['clientes']:
-        print(f"Ya existe un cliente con cedula {cliente.cedula}")
+        print(
+            f"Ya existe un cliente con cedula {cliente.cedula} en su lista de clientes")
         return False
     elif f'{cliente.cedula}' in data1:
+        data[f'{cedula_empleado}']['clientes'][f'{cliente.cedula}'] = data1[f'{cliente.cedula}']
+        with open('src/data/empleados.json', 'w') as file:
+            json.dump(data, file)
         print(
-            f"Ya existe un cliente con cedula {cliente.cedula} en la base de datos, agregue el producto al cliente")
+            f"Se ha agregado el cliente con cedula {cliente.cedula} a su lista de clientes")
         return False
     else:
         data[f'{cedula_empleado}']['clientes'][f'{cliente.cedula}'] = {
@@ -78,14 +85,27 @@ def add_cliente(cliente: Cliente, cedula_empleado: int) -> None:
         return True
 
 
+# Para agregar un producto a un cliente, el cliente debe estar en la base de datos
 def add_producto(seguro: Seguro, cedula_empleado: int) -> None/bool:
     with open(f'src/data/clientes.json', 'r') as file:
         data = json.load(file)
     if f'{seguro.cliente.cedula}' in data:
         data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'] = {
             "precio": seguro.precio,
-            "cobertura": seguro.cobertura
+            "cobertura": seguro.cobertura,
+            "tipo": seguro.tipo
         }
+        if data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'SOAT' or data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'Automovil':
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['placa'] = seguro.placa
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['modelo'] = seguro.modelo
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['marca'] = seguro.marca
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['color'] = seguro.color
+        elif data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'Hogar':
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['direccion'] = seguro.direccion
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['metros_cuadrados'] = seguro.metros_cuadrados
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['numero_habitaciones'] = seguro.numero_habitaciones
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['numero_banos'] = seguro.numero_banos
+            data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['valor'] = seguro.valor
         with open('src/data/clientes.json', 'w') as file:
             json.dump(data, file)
         with open(f'src/data/empleados.json', 'r') as file1:
@@ -96,12 +116,94 @@ def add_producto(seguro: Seguro, cedula_empleado: int) -> None/bool:
         return True
 
 
-# Convierte el diccionario cliente en un objeto de clase Cliente
-def get_cliente(cedula: int) -> Cliente/bool:
+# Convierte el diccionario producto en un objeto de clase Seguro
+def get_producto(id: int, cedula_cliente: int) -> Seguro/bool:
+    with open(f'src/data/clientes.json', 'r') as file:
+        data = json.load(file)
+    if f'{id}' in data[f'{cedula_cliente}']['productos']:
+        if data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Vida':
+            producto = Vida(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
+                            data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente))
+        elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Automovil':
+            producto = Automovil(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'], data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'],
+                                 transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['placa'], data[f'{cedula_cliente}']['productos'][f'{id}']['modelo'], data[f'{cedula_cliente}']['productos'][f'{id}']['marca'], data[f'{cedula_cliente}']['productos'][f'{id}']['color'])
+        elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'SOAT':
+            producto = SOAT(data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['placa'],
+                            data[f'{cedula_cliente}']['productos'][f'{id}']['modelo'], data[f'{cedula_cliente}']['productos'][f'{id}']['marca'], data[f'{cedula_cliente}']['productos'][f'{id}']['color'])
+        elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Hogar':
+            producto = Hogar(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'], data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'],
+                             transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['direccion'], data[f'{cedula_cliente}']['productos'][f'{id}']['metros_cuadrados'], data[f'{cedula_cliente}']['productos'][f'{id}']['numero_habitaciones'], data[f'{cedula_cliente}']['productos'][f'{id}']['numero_banos'], data[f'{cedula_cliente}']['productos'][f'{id}']['valor'])
+        elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Desempleo':
+            producto = Desempleo(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
+                                 data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente))
+        return producto
+    return False
+
+
+# Convierte el diccionario cliente en un objeto de clase Cliente sin productos
+def transform_cliente(cedula: int) -> Cliente/bool:
     with open(f'src/data/clientes.json', 'r') as file:
         data = json.load(file)
     if f'{cedula}' in data:
         cliente = Cliente(data[f'{cedula}']['nombre'], data[f'{cedula}']['edad'], cedula, data[f'{cedula}']['genero'], data[f'{cedula}']['estado_civil'],
                           data[f'{cedula}']['direccion'], data[f'{cedula}']['telefono'], data[f'{cedula}']['correo'], data[f'{cedula}']['peso'], data[f'{cedula}']['estatura'])
-        cliente.productos = data[f'{cedula}']['productos']
+        cliente.productos = []
         return cliente
+    return False
+
+
+# Retorna el objeto de clase Cliente con sus productos
+def get_cliente(cedula: int) -> Cliente/bool:
+    with open(f'src/data/clientes.json', 'r') as file:
+        data = json.load(file)
+    cliente = transform_cliente(cedula)
+    if f'{cedula}' in data:
+        for producto in data[f'{cliente.cedula}']['productos'].keys():
+            cliente.productos.append(
+                get_producto(int(producto), cliente.cedula))
+        for producto in cliente.productos:
+            producto.cliente.productos = cliente.productos
+        return cliente
+    return False
+
+
+def get_empleado(cedula: int) -> Empleado/bool:
+    with open(f'src/data/empleados.json', 'r') as file:
+        data = json.load(file)
+    if f'{cedula}' in data:
+        empleado = Empleado(data[f'{cedula}']['nombre'], data[f'{cedula}']['edad'], cedula, data[f'{cedula}']
+                            ['genero'], data[f'{cedula}']['estado_civil'], data[f'{cedula}']['sueldo'], data[f'{cedula}']['correo'])
+        empleado.clientes = [get_cliente(
+            int(cliente)) for cliente in data[f'{cedula}']['clientes'].keys()]
+        return empleado
+    return False
+
+
+def total_empleados() -> List["Empleado"]:
+    empleados = []
+    with open(f'src/data/empleados.json', 'r') as file:
+        data = json.load(file)
+    for empleado in data.keys():
+        empleados.append(get_empleado(int(empleado)))
+    return empleados
+
+
+def total_clientes() -> List["Cliente"]:
+    clientes = []
+    with open(f'src/data/clientes.json', 'r') as file:
+        data = json.load(file)
+    for cliente in data.keys():
+        clientes.append(get_cliente(int(cliente)))
+    return clientes
+
+
+# Para que los cambios que se hagan sobre los objetos de tipo Persona y Seguro se vean reflejados en el archivo json, se debe usar la funcion update_json
+def changes():
+    with open(f'src/data/clientes.json', 'r') as file:
+        data = json.load(file)
+    with open(f'src/data/empleados.json', 'r') as file1:
+        data1 = json.load(file1)
+    pass
+
+
+# print(total_empleados()[4].clientes[0].productos[0].tipo)
