@@ -10,9 +10,8 @@ def create_json(name: str) -> dict:
         json.dump(data, file)
         return True
 
+
 # Agrega empleados a la base de datos
-
-
 def add_empleado(empleado: Empleado) -> None/bool:
     with open(f'src/data/empleados.json', 'r') as file:
         data = json.load(file)
@@ -93,6 +92,7 @@ def add_producto(seguro: Seguro, cedula_empleado: int) -> None/bool:
         data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'] = {
             "precio": seguro.precio,
             "cobertura": seguro.cobertura,
+            "valor_asegurado": seguro.valor_asegurado,
             "tipo": seguro.tipo
         }
         if data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'SOAT' or data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'Automovil':
@@ -136,6 +136,7 @@ def get_producto(id: int, cedula_cliente: int) -> Seguro/bool:
         elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Desempleo':
             producto = Desempleo(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
                                  data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente))
+        producto.valor_asegurado = data[f'{cedula_cliente}']['productos'][f'{id}']['valor_asegurado']
         return producto
     return False
 
