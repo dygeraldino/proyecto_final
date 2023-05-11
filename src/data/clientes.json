@@ -13,6 +13,7 @@
             "9907900": {
                 "precio": 700000.0,
                 "cobertura": "Incapacidad, accidente, enfermedad, tratamiento medico, muerte prematura",
+                "valor_asegurado": 0.0,
                 "tipo": "Vida"
             }
         }
