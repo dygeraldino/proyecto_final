@@ -2,6 +2,10 @@ from __future__ import annotations
 from typing import List, Optional
 from abc import ABC, abstractmethod
 import random
+import json
+
+with open(f'src/data/empleados.json', 'r') as file:
+    data = json.load(file)
 
 
 class Aseguradora:
@@ -112,6 +116,10 @@ class Empleado(Persona):
         self.__clientes: List["Cliente"] = []
         self.__id = Empleado.ID
         Empleado.ID += 1
+        for empleado in data.keys():
+            if data[f'{empleado}']['id'] == self.__id:
+                self.__id = Empleado.ID
+                Empleado.ID += 1
 
     @property
     def sueldo(self) -> float:
