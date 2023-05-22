@@ -40,6 +40,9 @@ def add_correo(correo: str) -> None/bool:
     with open(f'src/data/login.json', 'r') as file:
         data = json.load(file)
     num = random.randint(100000000, 500000000)
+    for email in data.keys():
+        if data[f'{email}'] == f's{num}_':
+            num = random.randint(100000000, 500000000)
     data[correo] = f"s{num}_"
     with open('src/data/login.json', 'w') as file:
         json.dump(data, file)
@@ -95,12 +98,12 @@ def add_producto(seguro: Seguro, cedula_empleado: int) -> None/bool:
             "valor_asegurado": seguro.valor_asegurado,
             "tipo": seguro.tipo
         }
-        if data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'SOAT' or data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'Automovil':
+        if data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'tipo'] == 'SOAT' or data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'tipo'] == 'Automovil':
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['placa'] = seguro.placa
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['modelo'] = seguro.modelo
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['marca'] = seguro.marca
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['color'] = seguro.color
-        elif data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'{seguro.tipo}'] == 'Hogar':
+        elif data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'tipo'] == 'Hogar':
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['direccion'] = seguro.direccion
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['metros_cuadrados'] = seguro.metros_cuadrados
             data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['numero_habitaciones'] = seguro.numero_habitaciones
@@ -198,13 +201,65 @@ def total_clientes() -> List["Cliente"]:
     return clientes
 
 
-# Para que los cambios que se hagan sobre los objetos de tipo Persona y Seguro se vean reflejados en el archivo json, se debe usar la funcion update_json
-def changes():
+# Para que los cambios que se hagan sobre los objetos de tipo Persona y Seguro se vean reflejados en el archivo json, se debe usar la funcion changes()
+def changes(clientes: List["Cliente"], empleados: List["Empleado"]) -> None:
     with open(f'src/data/clientes.json', 'r') as file:
         data = json.load(file)
     with open(f'src/data/empleados.json', 'r') as file1:
         data1 = json.load(file1)
-    pass
+
+    for cedula in data.keys():
+        for cliente in clientes:
+            if f'{cedula}' == f'{cliente.cedula}':
+                data[f'{cedula}'] = {
+                    "nombre": cliente.nombre,
+                    "edad": cliente.edad,
+                    "genero": cliente.genero,
+                    "estado_civil": cliente.estado_civil,
+                    "direccion": cliente.direccion,
+                    "telefono": cliente.telefono,
+                    "correo": cliente.correo,
+                    "peso": cliente.peso,
+                    "estatura": cliente.estatura,
+                    "productos": {}
+                }
+                for seguro in cliente.productos:
+                    data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'] = {
+                        "precio": seguro.precio,
+                        "cobertura": seguro.cobertura,
+                        "valor_asegurado": seguro.valor_asegurado,
+                        "tipo": seguro.tipo
+                    }
+                    if data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'tipo'] == 'SOAT' or data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'tipo'] == 'Automovil':
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['placa'] = seguro.placa
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['modelo'] = seguro.modelo
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['marca'] = seguro.marca
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['color'] = seguro.color
+                    elif data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}'][f'tipo'] == 'Hogar':
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['direccion'] = seguro.direccion
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['metros_cuadrados'] = seguro.metros_cuadrados
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['numero_habitaciones'] = seguro.numero_habitaciones
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['numero_banos'] = seguro.numero_banos
+                        data[f'{seguro.cliente.cedula}']['productos'][f'{seguro.id}']['valor'] = seguro.valor
+                for empleado in data1.keys():
+                    if f'{cedula}' in data1[f'{empleado}']['clientes']:
+                        data1[f'{empleado}']['clientes'][f'{cedula}'] = data[f'{cedula}']
+                for empleado in empleados:
+                    data[f'{empleado.cedula}'] = {
+                        "nombre": empleado.nombre,
+                        "edad": empleado.edad,
+                        "genero": empleado.genero,
+                        "estado_civil": empleado.estado_civil,
+                        "sueldo": empleado.sueldo,
+                        "correo": empleado.correo,
+                        "comision": empleado.comision,
+                        "clientes": data1[f'{empleado.cedula}']['clientes'],
+                        "id": empleado.id
+                    }
+    with open('src/data/clientes.json', 'w') as file:
+        json.dump(data, file)
+    with open('src/data/empleados.json', 'w') as file1:
+        json.dump(data1, file1)
 
 
 # print(total_empleados()[4].clientes[0].productos[0].tipo)
