@@ -32,13 +32,17 @@ class Aseguradora:
         self.__empleados = empleado
 
     def GananciaTotal(self) -> float:
-        # sumatoria de todos los precios de todos los seguros de todos los clientes
-        pass
+        for cliente in self.clientes:
+            for producto in cliente.productos:
+                total += producto.precio
+        return total
 
     def TotalAsegurado(self) -> float:
         # sumatoria de el valor asegurado de todos los seguros de todos los clientes
-        pass
-
+        for cliente in self.clientes:
+            for producto in cliente.productos:
+                total += producto.valor_asegurado
+        return total
 
 class Persona(ABC):
     def __init__(self, nombre: str, edad: int, cedula: int, genero: str, estado_civil: str) -> None:
@@ -179,7 +183,14 @@ class Empleado(Persona):
         self.__clientes.append(cliente)
 
     def calcular_comision(self) -> None:
-        pass
+        comision = 0
+        for cliente in self.clientes:
+            for producto in cliente.__productos:
+                if producto.precio <= 3000000 or producto.precio >= 1000000:
+                    comision += producto.precio*0.05
+                else:
+                    comision += producto.precio*0.05 + ((1000000 - producto.precio)//100000)*0.005
+        self.__comision = comision
 
 
 class Seguro(ABC):
