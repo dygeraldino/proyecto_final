@@ -15,6 +15,22 @@ class Aseguradora:
         self.nombre = nombre
         self.__id = 9789334298
 
+    @property
+    def clientes(self) -> List["Cliente"]:
+        return self.__clientes
+
+    @clientes.setter
+    def clientes(self, cliente: Cliente) -> None:
+        self.__clientes = cliente
+
+    @property
+    def empleados(self) -> List["Empleado"]:
+        return self.__empleados
+
+    @empleados.setter
+    def empleados(self, empleado: Empleado) -> None:
+        self.__empleados = empleado
+
     def GananciaTotal(self) -> float:
         pass
 
@@ -170,7 +186,6 @@ class Seguro(ABC):
         self._valor_asegurado = 0
         self._cobertura = cobertura
         self._cliente = cliente
-        cliente.agregar_producto(self)
         self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
 
