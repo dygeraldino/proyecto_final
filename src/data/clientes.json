@@ -68,7 +68,7 @@
         "estatura": 1.80,
         "productos": {
             "9876543": {
-                "precio": 1500000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 50000000.0,
                 "tipo": "SOAT"
@@ -144,7 +144,7 @@
         "estatura": 1.73,
         "productos": {
             "1092837": {
-                "precio": 400000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -220,7 +220,7 @@
         "estatura": 1.82,
         "productos": {
             "9872345": {
-                "precio": 1500000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 40000000.0,
                 "tipo": "SOAT"
@@ -296,7 +296,7 @@
         "estatura": 1.72,
         "productos": {
             "8765432": {
-                "precio": 400000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 30000000.0,
                 "tipo": "SOAT"
@@ -372,7 +372,7 @@
         "estatura": 1.75,
         "productos": {
             "2345678": {
-                "precio": 400000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -448,7 +448,7 @@
         "estatura": 1.78,
         "productos": {
             "2345678": {
-                "precio": 500000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -505,7 +505,7 @@
         "estatura": 1.65,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 15000000.0,
                 "tipo": "SOAT"
@@ -581,7 +581,7 @@
         "estatura": 1.85,
         "productos": {
             "2345678": {
-                "precio": 500000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 30000000.0,
                 "tipo": "SOAT"
@@ -638,7 +638,7 @@
         "estatura": 1.65,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -695,7 +695,7 @@
         "estatura": 1.78,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -790,7 +790,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -866,7 +866,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -961,7 +961,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -1037,7 +1037,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -1132,7 +1132,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -1208,7 +1208,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -1303,7 +1303,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -1474,7 +1474,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
@@ -1531,7 +1531,7 @@
         "estatura": 1.70,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 20000000.0,
                 "tipo": "SOAT"
@@ -1569,7 +1569,7 @@
         "estatura": 1.68,
         "productos": {
             "2345678": {
-                "precio": 700000.0,
+                "precio": 501700.0,
                 "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal.",
                 "valor_asegurado": 25000000.0,
                 "tipo": "SOAT"
