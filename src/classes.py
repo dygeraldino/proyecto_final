@@ -44,6 +44,7 @@ class Aseguradora:
                 total += producto.valor_asegurado
         return total
 
+
 class Persona(ABC):
     def __init__(self, nombre: str, edad: int, cedula: int, genero: str, estado_civil: str) -> None:
         self._nombre = nombre
@@ -179,9 +180,6 @@ class Empleado(Persona):
     def id(self, id: int) -> None:
         self.__id = id
 
-    def agregar_cliente(self, cliente: Cliente) -> None:
-        self.__clientes.append(cliente)
-
     def calcular_comision(self) -> None:
         comision = 0
         for cliente in self.clientes:
@@ -189,6 +187,8 @@ class Empleado(Persona):
                 if producto.precio <= 3000000 or producto.precio >= 1000000:
                     comision += producto.precio*0.05
                 else:
+                    comision += producto.precio*0.05 + \
+                        ((1000000 - producto.precio)//100000)*0.005
                     comision += producto.precio*0.05 + ((1000000 - producto.precio)//100000)*0.005
         self.__comision = comision
 

@@ -73,16 +73,5 @@
             }
         },
         "id": 1000005
-    },
-    "1098230432": {
-        "nombre": "Andrea Manjarrez Figueroa",
-        "edad": 23,
-        "genero": "F",
-        "estado_civil": "Soltera",
-        "sueldo": 1800000.0,
-        "correo": "amanjarrezfi@sgarantizada.com.co",
-        "comision": 0,
-        "clientes": {},
-        "id": 1000006
     }
 }
