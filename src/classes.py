@@ -44,7 +44,6 @@ class Aseguradora:
                 total += producto.valor_asegurado
         return total
 
-
 class Persona(ABC):
     def __init__(self, nombre: str, edad: int, cedula: int, genero: str, estado_civil: str) -> None:
         self._nombre = nombre
