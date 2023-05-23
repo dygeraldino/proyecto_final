@@ -1,0 +1,21 @@
+{
+    "4934889": {
+        "nombre": "Manuela Beltran Padilla",
+        "edad": 40,
+        "genero": "F",
+        "estado_civil": "Casada",
+        "direccion": "Calle 13 # 30 - 88",
+        "telefono": "3008902134",
+        "correo": "manuelitabp99@hotmail.com",
+        "peso": 60.2,
+        "estatura": 1.58,
+        "productos": {
+            "9907900": {
+                "precio": 700000.0,
+                "cobertura": "Incapacidad, accidente, enfermedad, tratamiento medico, muerte prematura",
+                "valor_asegurado": 0.0,
+                "tipo": "Vida"
+            }
+        }
+    }
+}
