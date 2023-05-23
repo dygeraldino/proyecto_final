@@ -189,6 +189,7 @@ class Empleado(Persona):
                 else:
                     comision += producto.precio*0.05 + \
                         ((1000000 - producto.precio)//100000)*0.005
+                    comision += producto.precio*0.05 + ((1000000 - producto.precio)//100000)*0.005
         self.__comision = comision
 
 
