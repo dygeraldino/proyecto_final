@@ -15,11 +15,34 @@ class Aseguradora:
         self.nombre = nombre
         self.__id = 9789334298
 
+    @property
+    def clientes(self) -> List["Cliente"]:
+        return self.__clientes
+
+    @clientes.setter
+    def clientes(self, cliente: Cliente) -> None:
+        self.__clientes = cliente
+
+    @property
+    def empleados(self) -> List["Empleado"]:
+        return self.__empleados
+
+    @empleados.setter
+    def empleados(self, empleado: Empleado) -> None:
+        self.__empleados = empleado
+
     def GananciaTotal(self) -> float:
-        pass
+        for cliente in self.clientes:
+            for producto in cliente.productos:
+                total += producto.precio
+        return total
 
     def TotalAsegurado(self) -> float:
-        pass
+        # sumatoria de el valor asegurado de todos los seguros de todos los clientes
+        for cliente in self.clientes:
+            for producto in cliente.productos:
+                total += producto.valor_asegurado
+        return total
 
 
 class Persona(ABC):
@@ -161,7 +184,14 @@ class Empleado(Persona):
         self.__clientes.append(cliente)
 
     def calcular_comision(self) -> None:
-        pass
+        comision = 0
+        for cliente in self.clientes:
+            for producto in cliente.__productos:
+                if producto.precio <= 3000000 or producto.precio >= 1000000:
+                    comision += producto.precio*0.05
+                else:
+                    comision += producto.precio*0.05 + ((1000000 - producto.precio)//100000)*0.005
+        self.__comision = comision
 
 
 class Seguro(ABC):
