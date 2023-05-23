@@ -170,6 +170,8 @@ def get_cliente(cedula: int) -> Cliente/bool:
         return cliente
     return False
 
+# Retorna el objeto de clase Empleado con sus clientes
+
 
 def get_empleado(cedula: int) -> Empleado/bool:
     with open(f'src/data/empleados.json', 'r') as file:
@@ -201,8 +203,8 @@ def total_clientes() -> List["Cliente"]:
     return clientes
 
 
-# Para que los cambios que se hagan sobre los objetos de tipo Persona y Seguro se vean reflejados en el archivo json, se debe usar la funcion changes()
-def changes(clientes: List["Cliente"], empleados: List["Empleado"]) -> None:
+# Para que los cambios que se hagan sobre los objetos de tipo Persona y Seguro se vean reflejados en el archivo json, se debe usar la funcion changes_client()
+def changes_client(clientes: List["Cliente"]) -> None:
     with open(f'src/data/clientes.json', 'r') as file:
         data = json.load(file)
     with open(f'src/data/empleados.json', 'r') as file1:
@@ -244,18 +246,6 @@ def changes(clientes: List["Cliente"], empleados: List["Empleado"]) -> None:
                 for empleado in data1.keys():
                     if f'{cedula}' in data1[f'{empleado}']['clientes']:
                         data1[f'{empleado}']['clientes'][f'{cedula}'] = data[f'{cedula}']
-                for empleado in empleados:
-                    data[f'{empleado.cedula}'] = {
-                        "nombre": empleado.nombre,
-                        "edad": empleado.edad,
-                        "genero": empleado.genero,
-                        "estado_civil": empleado.estado_civil,
-                        "sueldo": empleado.sueldo,
-                        "correo": empleado.correo,
-                        "comision": empleado.comision,
-                        "clientes": data1[f'{empleado.cedula}']['clientes'],
-                        "id": empleado.id
-                    }
     with open('src/data/clientes.json', 'w') as file:
         json.dump(data, file)
     with open('src/data/empleados.json', 'w') as file1:
