@@ -15,10 +15,28 @@ class Aseguradora:
         self.nombre = nombre
         self.__id = 9789334298
 
+    @property
+    def clientes(self) -> List["Cliente"]:
+        return self.__clientes
+
+    @clientes.setter
+    def clientes(self, cliente: Cliente) -> None:
+        self.__clientes = cliente
+
+    @property
+    def empleados(self) -> List["Empleado"]:
+        return self.__empleados
+
+    @empleados.setter
+    def empleados(self, empleado: Empleado) -> None:
+        self.__empleados = empleado
+
     def GananciaTotal(self) -> float:
+        # sumatoria de todos los precios de todos los seguros de todos los clientes
         pass
 
     def TotalAsegurado(self) -> float:
+        # sumatoria de el valor asegurado de todos los seguros de todos los clientes
         pass
 
 
