@@ -1,21 +1,31 @@
 import tkinter as tk
+import util.generic as utl
 from tipos import abrir_ventana_parametros
 
+
 class Interfaz_seguros:
-    def __init__(self):
+    def __init__(self, empleado):
+        self.empleado = empleado
         self.master = tk.Tk()
         self.master.geometry('800x500')
+        utl.centrar_ventana(self.master, 800, 500)
 
         # Crear el título
-        title = tk.Label(self.master, text="Seguros", font=('Times', 30), fg="#666a88")
+        title = tk.Label(self.master, text="Seguros",
+                         font=('Times', 30), fg="#666a88")
         title.grid(row=0, column=0, columnspan=2, pady=20)
 
         # Crear botones
-        buttonSOAT = tk.Button(self.master, text="SOAT", font=('Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("SOAT"))
-        buttonHogar = tk.Button(self.master, text="Hogar", font=('Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Hogar"))
-        buttonAutomovil = tk.Button(self.master, text="Automovil", font=('Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Automovil"))
-        buttonVida = tk.Button(self.master, text="Vida", font=('Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Vida"))
-        buttonDesempleo = tk.Button(self.master, text="Desempleo", font=('Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Desempleo"))
+        buttonSOAT = tk.Button(self.master, text="SOAT", font=(
+            'Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("SOAT"))
+        buttonHogar = tk.Button(self.master, text="Hogar", font=(
+            'Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Hogar"))
+        buttonAutomovil = tk.Button(self.master, text="Automovil", font=(
+            'Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Automovil"))
+        buttonVida = tk.Button(self.master, text="Vida", font=(
+            'Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Vida"))
+        buttonDesempleo = tk.Button(self.master, text="Desempleo", font=(
+            'Times', 22), bg="#3a7ff6", fg="#fff", command=lambda: self.abrir_interfaz_tipos("Desempleo"))
 
         # Colocar botones
         buttonSOAT.grid(row=1, column=0, padx=20, pady=20)
@@ -36,6 +46,4 @@ class Interfaz_seguros:
 
     def abrir_interfaz_tipos(self, tipo_):
         self.master.destroy()  # Cerrar la interfaz actual
-        interfaz_tipos = abrir_ventana_parametros(tipo_)
-
-
+        interfaz_tipos = abrir_ventana_parametros(tipo_, self.empleado)
