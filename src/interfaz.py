@@ -14,7 +14,8 @@ from PIL import Image, ImageTk
 
 
 class Interfaz:
-    def __init__(self):
+    def __init__(self, empleado):
+        self.empleado = empleado
         self.master = tk.Tk()
         self.master.geometry('800x500')
 
@@ -48,4 +49,5 @@ class Interfaz:
 
     def abrir_interfaz_seguros(self):
         self.master.destroy()  # Cerrar la interfaz actual
-        interfaz_seguros = Interfaz_seguros()  # Abrir la nueva interfaz
+        interfaz_seguros = Interfaz_seguros(
+            self.empleado)  # Abrir la nueva interfaz

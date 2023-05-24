@@ -17,7 +17,7 @@ class App:
 
         if usu in users and users[f'{usu}'] == password:
             self.ventana.destroy()
-            Interfaz()
+            Interfaz(usu)
         else:
             messagebox.showerror(
                 message="La contraseña no es correcta", title="Mensaje")

@@ -8,6 +8,10 @@ with open(f'src/data/empleados.json', 'r') as file:
     data = json.load(file)
 
 
+class ClienteExistente(Exception):
+    pass
+
+
 class Aseguradora:
     def __init__(self, nombre: str):
         self.__clientes: List["Cliente"] = []
@@ -205,7 +209,7 @@ class Seguro(ABC):
         self._valor_asegurado = 0
         self._cobertura = ""
         self._cliente = cliente
-        cliente.agregar_producto(self)
+        cliente.productos.append(self)
         self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
 
