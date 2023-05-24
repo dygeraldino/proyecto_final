@@ -124,8 +124,13 @@ class Cliente(Persona):
     def estatura(self) -> str:
         return self.__estatura
 
-    def agregar_producto(self, producto: Seguro) -> None:
-        self.__productos.append(producto)
+    @property
+    def productos(self) -> List["Seguro"]:
+        return self.__productos
+
+    @productos.setter
+    def productos(self, producto: Seguro) -> None:
+        self.__productos = producto
 
 
 class Empleado(Persona):
@@ -189,15 +194,16 @@ class Empleado(Persona):
                 else:
                     comision += producto.precio*0.05 + \
                         ((1000000 - producto.precio)//100000)*0.005
-                    comision += producto.precio*0.05 + ((1000000 - producto.precio)//100000)*0.005
+                    comision += producto.precio*0.05 + \
+                        ((1000000 - producto.precio)//100000)*0.005
         self.__comision = comision
 
 
 class Seguro(ABC):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente, tipo: str) -> None:
+    def __init__(self, precio: float, cliente: Cliente, tipo: str) -> None:
         self._precio = precio
         self._valor_asegurado = 0
-        self._cobertura = cobertura
+        self._cobertura = ""
         self._cliente = cliente
         cliente.agregar_producto(self)
         self._tipo = tipo
@@ -249,12 +255,13 @@ class Seguro(ABC):
 
 
 class SOAT(Seguro):
-    def __init__(self, cobertura: str, cliente: Cliente, placa: str, modelo: str, marca: str, color: str) -> None:
-        super().__init__(501700, cobertura, cliente, "SOAT")
+    def __init__(self, cliente: Cliente, placa: str, modelo: str, marca: str, color: str) -> None:
+        super().__init__(501700, cliente, "SOAT")
         self.__placa = placa
         self.__modelo = modelo
         self.__marca = marca
         self.__color = color
+        self.cobertura = "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal."
 
     @property
     def placa(self) -> str:
@@ -290,18 +297,20 @@ class SOAT(Seguro):
 
 
 class Vida(Seguro):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente):
-        super().__init__(precio, cobertura, cliente, "Vida")
+    def __init__(self, precio: float, cliente: Cliente):
+        super().__init__(precio, cliente, "Vida")
+        self.cobertura = "Presentamos su póliza de seguro de vida que ofrece una cobertura principal por fallecimiento, una cobertura complementaria por fallecimiento accidental, una cobertura por enfermedad grave y una cobertura por invalidez total y permanente para brindarle tranquilidad y protección financiera."
 
 
 class Hogar(Seguro):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente, direccion: str, metros_cuadrados: float, numero_habitaciones: int, numero_banos: int, valor: float):
-        super().__init__(precio, cobertura, cliente, "Hogar")
+    def __init__(self, precio: float, cliente: Cliente, direccion: str, metros_cuadrados: float, numero_habitaciones: int, numero_banos: int, valor: float):
+        super().__init__(precio, cliente, "Hogar")
         self.__direccion = direccion
         self.__metros_cuadrados = metros_cuadrados
         self.__numero_habitaciones = numero_habitaciones
         self.__numero_banos = numero_banos
         self.__valor = valor
+        self.cobertura = "Nuestro seguro de hogar ofrece protección integral para su vivienda, cubriendo daños por incendio, robo, inundación y responsabilidad civil, brindándole tranquilidad y seguridad en su hogar."
 
     @property
     def direccion(self) -> str:
@@ -345,12 +354,13 @@ class Hogar(Seguro):
 
 
 class Automovil(Seguro):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente, placa: str, modelo: str, marca: str, color: str):
-        super().__init__(precio, cobertura, cliente, "Automovil")
+    def __init__(self, precio: float, cliente: Cliente, placa: str, modelo: str, marca: str, color: str):
+        super().__init__(precio, cliente, "Automovil")
         self.__placa = placa
         self.__modelo = modelo
         self.__marca = marca
         self.__color = color
+        self.cobertura = "Nuestro seguro de automóvil le ofrece protección integral para su vehículo, cubriendo daños por accidentes, robo, responsabilidad civil y gastos médicos, brindándole tranquilidad en la carretera."
 
     @property
     def placa(self) -> str:
@@ -386,5 +396,6 @@ class Automovil(Seguro):
 
 
 class Desempleo(Seguro):
-    def __init__(self, precio: float, cobertura: str, cliente: Cliente):
-        super().__init__(precio, cobertura, cliente, "Desempleo")
+    def __init__(self, precio: float, cliente: Cliente):
+        super().__init__(precio, cliente, "Desempleo")
+        self.cobertura = "Nuestro seguro de desempleo le brinda un respaldo económico en caso de pérdida de empleo, garantizándole el pago de una indemnización mensual durante un período determinado."
