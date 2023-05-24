@@ -439,24 +439,5 @@
                 "color": "Rojo"
             }
         }
-    },
-    "1279817389": {
-        "nombre": "Daniel",
-        "edad": 18,
-        "genero": "M",
-        "estado_civil": "Soltero",
-        "direccion": "CLL 100",
-        "telefono": "274928934",
-        "correo": "@gmail.com",
-        "peso": 78.0,
-        "estatura": 2.0,
-        "productos": {
-            "1203900": {
-                "precio": 80000000.0,
-                "cobertura": "Presentamos su p\u00f3liza de seguro de vida que ofrece una cobertura principal por fallecimiento, una cobertura complementaria por fallecimiento accidental, una cobertura por enfermedad grave y una cobertura por invalidez total y permanente para brindarle tranquilidad y protecci\u00f3n financiera.",
-                "valor_asegurado": 0,
-                "tipo": "Vida"
-            }
-        }
     }
 }
