@@ -19,9 +19,9 @@
                 "peso": 65.5,
                 "estatura": 1.7,
                 "productos": {
-                    "2702900": {
+                    "6504200": {
                         "precio": 800000.0,
-                        "cobertura": "Nuestro seguro de autom\u00f3vil le ofrece protecci\u00f3n integral para su veh\u00edculo, cubriendo da\u00f1os por accidentes, robo, responsabilidad civil y gastos m\u00e9dicos, brind\u00e1ndole tranquilidad en la carretera.",
+                        "cobertura": "Nuestro seguro de automovil le ofrece proteccion integral para su vehiculo, cubriendo accidentes, robo, responsabilidad civil y gastos medicos, brindandole tranquilidad en la carretera.",
                         "valor_asegurado": 30000000.0,
                         "tipo": "Automovil",
                         "placa": "GHI789",
@@ -32,7 +32,7 @@
                 }
             },
             "2345671": {
-                "nombre": "Pedro Guti\u00c3\u00a9rrez Silva",
+                "nombre": "Pedro Gutierrez Silva",
                 "edad": 52,
                 "genero": "M",
                 "estado_civil": "Casado",
@@ -42,9 +42,9 @@
                 "peso": 90.0,
                 "estatura": 1.85,
                 "productos": {
-                    "9509300": {
+                    "1705500": {
                         "precio": 1200000.0,
-                        "cobertura": "Nuestro seguro de hogar ofrece protecci\u00f3n integral para su vivienda, cubriendo da\u00f1os por incendio, robo, inundaci\u00f3n y responsabilidad civil, brind\u00e1ndole tranquilidad y seguridad en su hogar.",
+                        "cobertura": "Nuestro seguro de hogar ofrece proteccion integral para su vivienda, cubriendo incendio, robo, inundacion y responsabilidad civil, brindandole tranquilidad y seguridad en su hogar.",
                         "valor_asegurado": 15000000.0,
                         "tipo": "Hogar",
                         "direccion": "CLL 1 # 40 - 20",
@@ -56,7 +56,7 @@
                 }
             },
             "9827345": {
-                "nombre": "Mar\u00c3\u00ada Rodr\u00c3\u00adguez P\u00c3\u00a9rez",
+                "nombre": "Maria Rodriguez Perez",
                 "edad": 41,
                 "genero": "F",
                 "estado_civil": "Viuda",
@@ -66,16 +66,16 @@
                 "peso": 68.0,
                 "estatura": 1.6,
                 "productos": {
-                    "2401600": {
+                    "3801100": {
                         "precio": 600000.0,
-                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo econ\u00f3mico en caso de p\u00e9rdida de empleo, garantiz\u00e1ndole el pago de una indemnizaci\u00f3n mensual durante un per\u00edodo determinado.",
+                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo economico en caso de perdida de empleo, garantizandole el pago de una indemnizacion mensual durante un periodo determinado.",
                         "valor_asegurado": 8000000.0,
                         "tipo": "Desempleo"
                     }
                 }
             },
             "4982734": {
-                "nombre": "Luis Torres Garc\u00c3\u00ada",
+                "nombre": "Luis Torres Garcia",
                 "edad": 37,
                 "genero": "M",
                 "estado_civil": "Soltero",
@@ -85,9 +85,9 @@
                 "peso": 75.5,
                 "estatura": 1.73,
                 "productos": {
-                    "5907900": {
+                    "7801400": {
                         "precio": 501700,
-                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos m\u00e9dicos, indemnizaciones y da\u00f1os a terceros en caso de accidentes de tr\u00e1nsito, asegurando su tranquilidad y cumplimiento legal.",
+                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos medicos, indemnizaciones y perjuicios a terceros en caso de accidentes de transito, asegurando su tranquilidad y cumplimiento legal.",
                         "valor_asegurado": 20000000.0,
                         "tipo": "SOAT",
                         "placa": "ABC123",
@@ -110,7 +110,7 @@
         "comision": 0.0,
         "clientes": {
             "6092381": {
-                "nombre": "Julia Mendoza Ram\u00c3\u00adrez",
+                "nombre": "Julia Mendoza Ramirez",
                 "edad": 29,
                 "genero": "F",
                 "estado_civil": "Soltera",
@@ -120,20 +120,20 @@
                 "peso": 57.0,
                 "estatura": 1.68,
                 "productos": {
-                    "205400": {
+                    "7807700": {
                         "precio": 800000.0,
-                        "cobertura": "Nuestro seguro de autom\u00f3vil le ofrece protecci\u00f3n integral para su veh\u00edculo, cubriendo da\u00f1os por accidentes, robo, responsabilidad civil y gastos m\u00e9dicos, brind\u00e1ndole tranquilidad en la carretera.",
+                        "cobertura": "Nuestro seguro de automovil le ofrece proteccion integral para su vehiculo, cubriendo accidentes, robo, responsabilidad civil y gastos medicos, brindandole tranquilidad en la carretera.",
                         "valor_asegurado": 40000000.0,
                         "tipo": "Automovil",
                         "placa": "JKL012",
-                        "modelo": "Sed\u00c3\u00a1n",
+                        "modelo": "Sedan",
                         "marca": "Honda",
                         "color": "Gris"
                     }
                 }
             },
             "2381029": {
-                "nombre": "Jorge G\u00c3\u00b3mez S\u00c3\u00a1nchez",
+                "nombre": "Jorge Gomez Sanchez",
                 "edad": 44,
                 "genero": "M",
                 "estado_civil": "Casado",
@@ -143,9 +143,9 @@
                 "peso": 82.0,
                 "estatura": 1.78,
                 "productos": {
-                    "4304700": {
+                    "3309000": {
                         "precio": 700000.0,
-                        "cobertura": "Nuestro seguro de hogar ofrece protecci\u00f3n integral para su vivienda, cubriendo da\u00f1os por incendio, robo, inundaci\u00f3n y responsabilidad civil, brind\u00e1ndole tranquilidad y seguridad en su hogar.",
+                        "cobertura": "Nuestro seguro de hogar ofrece proteccion integral para su vivienda, cubriendo incendio, robo, inundacion y responsabilidad civil, brindandole tranquilidad y seguridad en su hogar.",
                         "valor_asegurado": 12000000.0,
                         "tipo": "Hogar",
                         "direccion": "CLL 2 # 42 - 22",
@@ -157,7 +157,7 @@
                 }
             },
             "6876543": {
-                "nombre": "Andrea L\u00c3\u00b3pez Torres",
+                "nombre": "Andrea Lopez Torres",
                 "edad": 33,
                 "genero": "F",
                 "estado_civil": "Casada",
@@ -167,9 +167,9 @@
                 "peso": 62.5,
                 "estatura": 1.67,
                 "productos": {
-                    "5901000": {
+                    "2708300": {
                         "precio": 350000.0,
-                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo econ\u00f3mico en caso de p\u00e9rdida de empleo, garantiz\u00e1ndole el pago de una indemnizaci\u00f3n mensual durante un per\u00edodo determinado.",
+                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo economico en caso de perdida de empleo, garantizandole el pago de una indemnizacion mensual durante un periodo determinado.",
                         "valor_asegurado": 6000000.0,
                         "tipo": "Desempleo"
                     }
@@ -186,9 +186,9 @@
                 "peso": 85.0,
                 "estatura": 1.82,
                 "productos": {
-                    "701800": {
+                    "9702600": {
                         "precio": 501700,
-                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos m\u00e9dicos, indemnizaciones y da\u00f1os a terceros en caso de accidentes de tr\u00e1nsito, asegurando su tranquilidad y cumplimiento legal.",
+                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos medicos, indemnizaciones y perjuicios a terceros en caso de accidentes de transito, asegurando su tranquilidad y cumplimiento legal.",
                         "valor_asegurado": 40000000.0,
                         "tipo": "SOAT",
                         "placa": "AVR123",
@@ -211,7 +211,7 @@
         "comision": 0.0,
         "clientes": {
             "6723456": {
-                "nombre": "Mar\u00c3\u00ada Torres G\u00c3\u00b3mez",
+                "nombre": "Maria Torres Gamez",
                 "edad": 31,
                 "genero": "F",
                 "estado_civil": "Casada",
@@ -221,9 +221,9 @@
                 "peso": 60.0,
                 "estatura": 1.65,
                 "productos": {
-                    "7609400": {
+                    "4608300": {
                         "precio": 900000.0,
-                        "cobertura": "Nuestro seguro de autom\u00f3vil le ofrece protecci\u00f3n integral para su veh\u00edculo, cubriendo da\u00f1os por accidentes, robo, responsabilidad civil y gastos m\u00e9dicos, brind\u00e1ndole tranquilidad en la carretera.",
+                        "cobertura": "Nuestro seguro de automovil le ofrece proteccion integral para su vehiculo, cubriendo accidentes, robo, responsabilidad civil y gastos medicos, brindandole tranquilidad en la carretera.",
                         "valor_asegurado": 35000000.0,
                         "tipo": "Automovil",
                         "placa": "GNI709",
@@ -234,7 +234,7 @@
                 }
             },
             "34567809": {
-                "nombre": "Roberto Guti\u00c3\u00a9rrez P\u00c3\u00a9rez",
+                "nombre": "Roberto Gutierrez Peron",
                 "edad": 42,
                 "genero": "M",
                 "estado_civil": "Casado",
@@ -244,9 +244,9 @@
                 "peso": 75.0,
                 "estatura": 1.75,
                 "productos": {
-                    "1102700": {
+                    "1006100": {
                         "precio": 500000.0,
-                        "cobertura": "Nuestro seguro de hogar ofrece protecci\u00f3n integral para su vivienda, cubriendo da\u00f1os por incendio, robo, inundaci\u00f3n y responsabilidad civil, brind\u00e1ndole tranquilidad y seguridad en su hogar.",
+                        "cobertura": "Nuestro seguro de hogar ofrece proteccion integral para su vivienda, cubriendo incendio, robo, inundacion y responsabilidad civil, brindandole tranquilidad y seguridad en su hogar.",
                         "valor_asegurado": 8000000.0,
                         "tipo": "Hogar",
                         "direccion": "CLL 3 # 44 - 24",
@@ -258,7 +258,7 @@
                 }
             },
             "9876543": {
-                "nombre": "Laura Mart\u00c3\u00adnez S\u00c3\u00a1nchez",
+                "nombre": "Laura Martinez Sanchez",
                 "edad": 36,
                 "genero": "F",
                 "estado_civil": "Soltera",
@@ -268,16 +268,16 @@
                 "peso": 63.5,
                 "estatura": 1.68,
                 "productos": {
-                    "5002200": {
+                    "2901000": {
                         "precio": 300000.0,
-                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo econ\u00f3mico en caso de p\u00e9rdida de empleo, garantiz\u00e1ndole el pago de una indemnizaci\u00f3n mensual durante un per\u00edodo determinado.",
+                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo economico en caso de perdida de empleo, garantizandole el pago de una indemnizacion mensual durante un periodo determinado.",
                         "valor_asegurado": 5000000.0,
                         "tipo": "Desempleo"
                     }
                 }
             },
             "78901203": {
-                "nombre": "Carlos Ram\u00c3\u00adrez L\u00c3\u00b3pez",
+                "nombre": "Carlos Ramirez Lopez",
                 "edad": 38,
                 "genero": "M",
                 "estado_civil": "Soltero",
@@ -287,9 +287,9 @@
                 "peso": 70.0,
                 "estatura": 1.72,
                 "productos": {
-                    "3400": {
+                    "6406800": {
                         "precio": 501700,
-                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos m\u00e9dicos, indemnizaciones y da\u00f1os a terceros en caso de accidentes de tr\u00e1nsito, asegurando su tranquilidad y cumplimiento legal.",
+                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos medicos, indemnizaciones y perjuicios a terceros en caso de accidentes de transito, asegurando su tranquilidad y cumplimiento legal.",
                         "valor_asegurado": 30000000.0,
                         "tipo": "SOAT",
                         "placa": "LKD987",
@@ -312,7 +312,7 @@
         "comision": 0.0,
         "clientes": {
             "8976543": {
-                "nombre": "Carolina S\u00c3\u00a1nchez Torres",
+                "nombre": "Carolina Snchez Torres",
                 "edad": 35,
                 "genero": "F",
                 "estado_civil": "Casada",
@@ -322,9 +322,9 @@
                 "peso": 68.5,
                 "estatura": 1.65,
                 "productos": {
-                    "602600": {
+                    "6308900": {
                         "precio": 800000.0,
-                        "cobertura": "Nuestro seguro de autom\u00f3vil le ofrece protecci\u00f3n integral para su veh\u00edculo, cubriendo da\u00f1os por accidentes, robo, responsabilidad civil y gastos m\u00e9dicos, brind\u00e1ndole tranquilidad en la carretera.",
+                        "cobertura": "Nuestro seguro de automovil le ofrece proteccion integral para su vehiculo, cubriendo accidentes, robo, responsabilidad civil y gastos medicos, brindandole tranquilidad en la carretera.",
                         "valor_asegurado": 40000000.0,
                         "tipo": "Automovil",
                         "placa": "DEF456",
@@ -335,7 +335,7 @@
                 }
             },
             "45678890": {
-                "nombre": "David G\u00c3\u00b3mez Rodr\u00c3\u00adguez",
+                "nombre": "David Gamez Rodriguez",
                 "edad": 45,
                 "genero": "M",
                 "estado_civil": "Casado",
@@ -345,9 +345,9 @@
                 "peso": 80.0,
                 "estatura": 1.8,
                 "productos": {
-                    "3005800": {
+                    "6803800": {
                         "precio": 900000.0,
-                        "cobertura": "Nuestro seguro de hogar ofrece protecci\u00f3n integral para su vivienda, cubriendo da\u00f1os por incendio, robo, inundaci\u00f3n y responsabilidad civil, brind\u00e1ndole tranquilidad y seguridad en su hogar.",
+                        "cobertura": "Nuestro seguro de hogar ofrece proteccion integral para su vivienda, cubriendo incendio, robo, inundacion y responsabilidad civil, brindandole tranquilidad y seguridad en su hogar.",
                         "valor_asegurado": 15000000.0,
                         "tipo": "Hogar",
                         "direccion": "CLL 4 # 46 - 26",
@@ -359,7 +359,7 @@
                 }
             },
             "3456781": {
-                "nombre": "Sandra L\u00c3\u00b3pez G\u00c3\u00b3mez",
+                "nombre": "Sandra Lopez Gomez",
                 "edad": 39,
                 "genero": "F",
                 "estado_civil": "Casada",
@@ -369,16 +369,16 @@
                 "peso": 65.0,
                 "estatura": 1.7,
                 "productos": {
-                    "8101700": {
+                    "908800": {
                         "precio": 500000.0,
-                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo econ\u00f3mico en caso de p\u00e9rdida de empleo, garantiz\u00e1ndole el pago de una indemnizaci\u00f3n mensual durante un per\u00edodo determinado.",
+                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo economico en caso de perdida de empleo, garantizandole el pago de una indemnizacion mensual durante un periodo determinado.",
                         "valor_asegurado": 7000000.0,
                         "tipo": "Desempleo"
                     }
                 }
             },
             "8976512": {
-                "nombre": "Miguel Torres Ram\u00c3\u00adrez",
+                "nombre": "Miguel Torres Ramirez",
                 "edad": 37,
                 "genero": "M",
                 "estado_civil": "Soltero",
@@ -388,9 +388,9 @@
                 "peso": 75.0,
                 "estatura": 1.75,
                 "productos": {
-                    "606700": {
+                    "8102400": {
                         "precio": 501700,
-                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos m\u00e9dicos, indemnizaciones y da\u00f1os a terceros en caso de accidentes de tr\u00e1nsito, asegurando su tranquilidad y cumplimiento legal.",
+                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos medicos, indemnizaciones y perjuicios a terceros en caso de accidentes de transito, asegurando su tranquilidad y cumplimiento legal.",
                         "valor_asegurado": 20000000.0,
                         "tipo": "SOAT",
                         "placa": "IGH719",
@@ -423,16 +423,16 @@
                 "peso": 60.2,
                 "estatura": 1.58,
                 "productos": {
-                    "9406800": {
+                    "4002600": {
                         "precio": 700000.0,
-                        "cobertura": "Presentamos su p\u00f3liza de seguro de vida que ofrece una cobertura principal por fallecimiento, una cobertura complementaria por fallecimiento accidental, una cobertura por enfermedad grave y una cobertura por invalidez total y permanente para brindarle tranquilidad y protecci\u00f3n financiera.",
+                        "cobertura": "Presentamos su poliza de seguro de vida que ofrece una cobertura principal por fallecimiento, una cobertura complementaria por fallecimiento accidental, una cobertura por enfermedad grave y una cobertura por invalidez total y permanente para brindarle tranquilidad y proteccion financiera.",
                         "valor_asegurado": 50000000.0,
                         "tipo": "Vida"
                     }
                 }
             },
             "8989312": {
-                "nombre": "Carlos Mart\u00c3\u00adnez G\u00c3\u00b3mez",
+                "nombre": "Carlos Martinez Galan",
                 "edad": 35,
                 "genero": "M",
                 "estado_civil": "Soltero",
@@ -442,9 +442,9 @@
                 "peso": 70.5,
                 "estatura": 1.75,
                 "productos": {
-                    "8802700": {
+                    "2105300": {
                         "precio": 400000.0,
-                        "cobertura": "Nuestro seguro de hogar ofrece protecci\u00f3n integral para su vivienda, cubriendo da\u00f1os por incendio, robo, inundaci\u00f3n y responsabilidad civil, brind\u00e1ndole tranquilidad y seguridad en su hogar.",
+                        "cobertura": "Nuestro seguro de hogar ofrece proteccion integral para su vivienda, cubriendo incendio, robo, inundacion y responsabilidad civil, brindandole tranquilidad y seguridad en su hogar.",
                         "valor_asegurado": 10000000.0,
                         "tipo": "Hogar",
                         "direccion": "CLL 5 # 48 - 28",
@@ -456,7 +456,7 @@
                 }
             },
             "7458132": {
-                "nombre": "Laura Ram\u00c3\u00adrez L\u00c3\u00b3pez",
+                "nombre": "Laura Rivas Lirio",
                 "edad": 28,
                 "genero": "F",
                 "estado_civil": "Soltera",
@@ -466,16 +466,16 @@
                 "peso": 55.0,
                 "estatura": 1.65,
                 "productos": {
-                    "7200500": {
+                    "2804300": {
                         "precio": 250000.0,
-                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo econ\u00f3mico en caso de p\u00e9rdida de empleo, garantiz\u00e1ndole el pago de una indemnizaci\u00f3n mensual durante un per\u00edodo determinado.",
+                        "cobertura": "Nuestro seguro de desempleo le brinda un respaldo economico en caso de perdida de empleo, garantizandole el pago de una indemnizacion mensual durante un periodo determinado.",
                         "valor_asegurado": 5000000.0,
                         "tipo": "Desempleo"
                     }
                 }
             },
             "2345978": {
-                "nombre": "Juan P\u00c3\u00a9rez Rodr\u00c3\u00adguez",
+                "nombre": "Juan Polo Rodriguez",
                 "edad": 45,
                 "genero": "M",
                 "estado_civil": "Casado",
@@ -485,9 +485,9 @@
                 "peso": 80.0,
                 "estatura": 1.8,
                 "productos": {
-                    "3806300": {
+                    "4400600": {
                         "precio": 501700,
-                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos m\u00e9dicos, indemnizaciones y da\u00f1os a terceros en caso de accidentes de tr\u00e1nsito, asegurando su tranquilidad y cumplimiento legal.",
+                        "cobertura": "El SOAT es un seguro obligatorio que cubre los gastos medicos, indemnizaciones y perjuicios a terceros en caso de accidentes de transito, asegurando su tranquilidad y cumplimiento legal.",
                         "valor_asegurado": 50000000.0,
                         "tipo": "SOAT",
                         "placa": "FED456",
