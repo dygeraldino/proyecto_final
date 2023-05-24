@@ -1,10 +1,8 @@
-from classes import *
-from json_controller import *
-import json
+from form_login import App
 
 
 def main():
-    pass
+    App()
 
 
 if __name__ == "__main__":
