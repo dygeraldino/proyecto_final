@@ -267,4 +267,3 @@ def abrir_ventana_parametros(tipo_, email_empleado):
     nueva_ventana.mainloop()
 
 
-abrir_ventana_parametros("Vida", "mvegafuentes@sgarantizada.com.co")
