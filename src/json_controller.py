@@ -50,22 +50,17 @@ def add_correo(correo: str) -> None/bool:
 
 
 # Agrega clientes a la base de datos
-def add_cliente(cliente: Cliente, cedula_empleado: int) -> None:
+def add_cliente(cliente: Cliente, cedula_empleado: int) -> None/bool:
     with open(f'src/data/empleados.json', 'r') as file:
         data = json.load(file)
     with open(f'src/data/clientes.json', 'r') as file1:
         data1 = json.load(file1)
     if f'{cliente.cedula}' in data[f'{cedula_empleado}']['clientes']:
-        print(
-            f"Ya existe un cliente con cedula {cliente.cedula} en su lista de clientes")
-        return False
+        raise ClienteExistente(
+            f"Ya existe un cliente con cedula {cliente.cedula} en la lista de clientes de otro empleado")
     elif f'{cliente.cedula}' in data1:
-        data[f'{cedula_empleado}']['clientes'][f'{cliente.cedula}'] = data1[f'{cliente.cedula}']
-        with open('src/data/empleados.json', 'w') as file:
-            json.dump(data, file)
-        print(
-            f"Se ha agregado el cliente con cedula {cliente.cedula} a su lista de clientes")
-        return False
+        raise ClienteExistente(
+            f"Ya existe un cliente con cedula {cliente.cedula} en la lista de clientes de otro empleado")
     else:
         data[f'{cedula_empleado}']['clientes'][f'{cliente.cedula}'] = {
             "nombre": cliente.nombre,
@@ -125,20 +120,20 @@ def get_producto(id: int, cedula_cliente: int) -> Seguro/bool:
         data = json.load(file)
     if f'{id}' in data[f'{cedula_cliente}']['productos']:
         if data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Vida':
-            producto = Vida(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
-                            data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente))
+            producto = Vida(data[f'{cedula_cliente}']['productos']
+                            [f'{id}']['precio'], transform_cliente(cedula_cliente))
         elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Automovil':
-            producto = Automovil(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'], data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'],
+            producto = Automovil(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
                                  transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['placa'], data[f'{cedula_cliente}']['productos'][f'{id}']['modelo'], data[f'{cedula_cliente}']['productos'][f'{id}']['marca'], data[f'{cedula_cliente}']['productos'][f'{id}']['color'])
         elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'SOAT':
-            producto = SOAT(data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['placa'],
+            producto = SOAT(transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['placa'],
                             data[f'{cedula_cliente}']['productos'][f'{id}']['modelo'], data[f'{cedula_cliente}']['productos'][f'{id}']['marca'], data[f'{cedula_cliente}']['productos'][f'{id}']['color'])
         elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Hogar':
-            producto = Hogar(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'], data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'],
+            producto = Hogar(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
                              transform_cliente(cedula_cliente), data[f'{cedula_cliente}']['productos'][f'{id}']['direccion'], data[f'{cedula_cliente}']['productos'][f'{id}']['metros_cuadrados'], data[f'{cedula_cliente}']['productos'][f'{id}']['numero_habitaciones'], data[f'{cedula_cliente}']['productos'][f'{id}']['numero_banos'], data[f'{cedula_cliente}']['productos'][f'{id}']['valor'])
         elif data[f'{cedula_cliente}']['productos'][f'{id}']['tipo'] == 'Desempleo':
-            producto = Desempleo(data[f'{cedula_cliente}']['productos'][f'{id}']['precio'],
-                                 data[f'{cedula_cliente}']['productos'][f'{id}']['cobertura'], transform_cliente(cedula_cliente))
+            producto = Desempleo(data[f'{cedula_cliente}']['productos']
+                                 [f'{id}']['precio'], transform_cliente(cedula_cliente))
         producto.valor_asegurado = data[f'{cedula_cliente}']['productos'][f'{id}']['valor_asegurado']
         return producto
     return False
@@ -179,8 +174,8 @@ def get_empleado(cedula: int) -> Empleado/bool:
     if f'{cedula}' in data:
         empleado = Empleado(data[f'{cedula}']['nombre'], data[f'{cedula}']['edad'], cedula, data[f'{cedula}']
                             ['genero'], data[f'{cedula}']['estado_civil'], data[f'{cedula}']['sueldo'], data[f'{cedula}']['correo'])
-        empleado.clientes = [get_cliente(
-            int(cliente)) for cliente in data[f'{cedula}']['clientes'].keys()]
+        for cliente in data[f'{cedula}']['clientes'].keys():
+            empleado.clientes.append(get_cliente(int(cliente)))
         return empleado
     return False
 
@@ -250,6 +245,3 @@ def changes_client(clientes: List["Cliente"]) -> None:
         json.dump(data, file)
     with open('src/data/empleados.json', 'w') as file1:
         json.dump(data1, file1)
-
-
-# print(total_empleados()[4].clientes[0].productos[0].tipo)
