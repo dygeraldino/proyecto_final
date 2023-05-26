@@ -45,7 +45,8 @@ class Interfaz:
 
     def abrir_interfaz_usuario(self):
         self.master.destroy()  # Cerrar la interfaz actual
-        interfaz_usuario = Interfaz_usuario()  # Abrir la nueva interfaz
+        interfaz_usuario = Interfaz_usuario(
+            self.empleado)  # Abrir la nueva interfaz
 
     def abrir_interfaz_seguros(self):
         self.master.destroy()  # Cerrar la interfaz actual
