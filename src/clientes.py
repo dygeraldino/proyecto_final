@@ -40,8 +40,9 @@ class Interfaz_clientes:
         for cliente in self.empleado.clientes:
             c += 1
             item_id = self.treeview.insert("", "end", text=c, values=(cliente.nombre, cliente.edad, cliente.genero,
-                                                                      cliente.estado_civil, cliente.direccion, cliente.telefono, cliente.correo, cliente.peso, cliente.estatura, 0))
-            self.treeview.set(item_id, column="productos", value="Ver")
+                                                                      cliente.estado_civil, cliente.direccion, cliente.telefono, cliente.correo, cliente.peso, cliente.estatura, ""))
+            self.treeview.set(item_id, column="productos",
+                              value="Ver productos")
 
         # Configurar las barras de desplazamiento
         scrollbar_y = ttk.Scrollbar(
