@@ -32,6 +32,7 @@ def abrir_ventana_parametros(tipo_, email_empleado):
         correo = entry_correo.get()
         peso = float(entry_peso.get())
         estatura = float(entry_estatura.get())
+        valor_asegurado = float(entry_valor_asegurado.get())
 
         # Crear objeto Cliente con los datos ingresados
         cliente = Cliente(nombre, edad, cedula, genero, estado_civil,
@@ -80,9 +81,6 @@ def abrir_ventana_parametros(tipo_, email_empleado):
         except ClienteException as ex:
             messagebox.showerror(
                 message=f"{ex.__class__.__name__}: {ex}", title="Error")
-
-        # Cerrar la nueva ventana
-        nueva_ventana.destroy()
 
     # Etiquetas y cuadros de texto para los datos del cliente
     label_nombre = tk.Label(nueva_ventana, text="Nombre:", font=(
@@ -255,6 +253,13 @@ def abrir_ventana_parametros(tipo_, email_empleado):
         label_precio.grid(row=1, column=3, sticky="e")
         entry_precio = tk.Entry(nueva_ventana, font=('Times', 12), width=30)
         entry_precio.grid(row=1, column=4)
+
+    label_valor_asegurado = tk.Label(nueva_ventana, text="Valor asegurado:", font=(
+        'Times', 14), fg="#666a88", bg='#fcfcfc', anchor="w")
+    label_valor_asegurado.grid(row=7, column=3, sticky="e")
+    entry_valor_asegurado = tk.Entry(
+        nueva_ventana, font=('Times', 12), width=30)
+    entry_valor_asegurado.grid(row=7, column=4)
 
     # Botón para guardar los datos ingresados
     boton_guardar = tk.Button(
