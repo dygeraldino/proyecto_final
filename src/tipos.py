@@ -265,6 +265,3 @@ def abrir_ventana_parametros(tipo_, email_empleado):
 
     # Iniciar el bucle principal de la ventana
     nueva_ventana.mainloop()
-
-
-abrir_ventana_parametros("Vida", "mvegafuentes@sgarantizada.com.co")
