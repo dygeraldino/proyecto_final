@@ -18,6 +18,7 @@ class Interfaz:
         self.empleado = empleado
         self.master = tk.Tk()
         self.master.geometry('800x500')
+        utl.centrar_ventana(self.master, 800, 500)
 
         # Crear el título
         title = tk.Label(self.master, text="Seguridad garantizada",
