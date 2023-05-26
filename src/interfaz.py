@@ -18,6 +18,7 @@ class Interfaz:
         self.empleado = empleado
         self.master = tk.Tk()
         self.master.geometry('800x500')
+        utl.centrar_ventana(self.master, 800, 500)
 
         # Crear el título
         title = tk.Label(self.master, text="Seguridad garantizada",
@@ -45,7 +46,8 @@ class Interfaz:
 
     def abrir_interfaz_usuario(self):
         self.master.destroy()  # Cerrar la interfaz actual
-        interfaz_usuario = Interfaz_usuario()  # Abrir la nueva interfaz
+        interfaz_usuario = Interfaz_usuario(
+            self.empleado)  # Abrir la nueva interfaz
 
     def abrir_interfaz_seguros(self):
         self.master.destroy()  # Cerrar la interfaz actual

@@ -8,7 +8,7 @@ with open(f'src/data/empleados.json', 'r') as file:
     data = json.load(file)
 
 
-class ClienteExistente(Exception):
+class ClienteException(Exception):
     pass
 
 
@@ -192,7 +192,7 @@ class Empleado(Persona):
     def calcular_comision(self) -> None:
         comision = 0
         for cliente in self.clientes:
-            for producto in cliente.__productos:
+            for producto in cliente.productos:
                 if producto.precio <= 3000000 or producto.precio >= 1000000:
                     comision += producto.precio*0.05
                 else:
@@ -212,6 +212,7 @@ class Seguro(ABC):
         cliente.productos.append(self)
         self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
+        self.pago = False
 
     @property
     def precio(self) -> float:
