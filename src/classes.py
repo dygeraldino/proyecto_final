@@ -8,6 +8,10 @@ with open(f'src/data/empleados.json', 'r') as file:
     data = json.load(file)
 
 
+class ClienteException(Exception):
+    pass
+
+
 class Aseguradora:
     def __init__(self, nombre: str):
         self.__clientes: List["Cliente"] = []
@@ -188,7 +192,7 @@ class Empleado(Persona):
     def calcular_comision(self) -> None:
         comision = 0
         for cliente in self.clientes:
-            for producto in cliente.__productos:
+            for producto in cliente.productos:
                 if producto.precio <= 3000000 or producto.precio >= 1000000:
                     comision += producto.precio*0.05
                 else:
@@ -205,9 +209,10 @@ class Seguro(ABC):
         self._valor_asegurado = 0
         self._cobertura = ""
         self._cliente = cliente
-        cliente.agregar_producto(self)
+        cliente.productos.append(self)
         self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
+        self.pago = False
 
     @property
     def precio(self) -> float:
@@ -261,7 +266,7 @@ class SOAT(Seguro):
         self.__modelo = modelo
         self.__marca = marca
         self.__color = color
-        self.cobertura = "El SOAT es un seguro obligatorio que cubre los gastos médicos, indemnizaciones y daños a terceros en caso de accidentes de tránsito, asegurando su tranquilidad y cumplimiento legal."
+        self.cobertura = "El SOAT es un seguro obligatorio que cubre los gastos medicos, indemnizaciones y perjuicios a terceros en caso de accidentes de transito, asegurando su tranquilidad y cumplimiento legal."
 
     @property
     def placa(self) -> str:
@@ -299,7 +304,7 @@ class SOAT(Seguro):
 class Vida(Seguro):
     def __init__(self, precio: float, cliente: Cliente):
         super().__init__(precio, cliente, "Vida")
-        self.cobertura = "Presentamos su póliza de seguro de vida que ofrece una cobertura principal por fallecimiento, una cobertura complementaria por fallecimiento accidental, una cobertura por enfermedad grave y una cobertura por invalidez total y permanente para brindarle tranquilidad y protección financiera."
+        self.cobertura = "Presentamos su poliza de seguro de vida que ofrece una cobertura principal por fallecimiento, una cobertura complementaria por fallecimiento accidental, una cobertura por enfermedad grave y una cobertura por invalidez total y permanente para brindarle tranquilidad y proteccion financiera."
 
 
 class Hogar(Seguro):
@@ -310,7 +315,7 @@ class Hogar(Seguro):
         self.__numero_habitaciones = numero_habitaciones
         self.__numero_banos = numero_banos
         self.__valor = valor
-        self.cobertura = "Nuestro seguro de hogar ofrece protección integral para su vivienda, cubriendo daños por incendio, robo, inundación y responsabilidad civil, brindándole tranquilidad y seguridad en su hogar."
+        self.cobertura = "Nuestro seguro de hogar ofrece proteccion integral para su vivienda, cubriendo incendio, robo, inundacion y responsabilidad civil, brindandole tranquilidad y seguridad en su hogar."
 
     @property
     def direccion(self) -> str:
@@ -360,7 +365,7 @@ class Automovil(Seguro):
         self.__modelo = modelo
         self.__marca = marca
         self.__color = color
-        self.cobertura = "Nuestro seguro de automóvil le ofrece protección integral para su vehículo, cubriendo daños por accidentes, robo, responsabilidad civil y gastos médicos, brindándole tranquilidad en la carretera."
+        self.cobertura = "Nuestro seguro de automovil le ofrece proteccion integral para su vehiculo, cubriendo accidentes, robo, responsabilidad civil y gastos medicos, brindandole tranquilidad en la carretera."
 
     @property
     def placa(self) -> str:
@@ -398,4 +403,4 @@ class Automovil(Seguro):
 class Desempleo(Seguro):
     def __init__(self, precio: float, cliente: Cliente):
         super().__init__(precio, cliente, "Desempleo")
-        self.cobertura = "Nuestro seguro de desempleo le brinda un respaldo económico en caso de pérdida de empleo, garantizándole el pago de una indemnización mensual durante un período determinado."
+        self.cobertura = "Nuestro seguro de desempleo le brinda un respaldo economico en caso de perdida de empleo, garantizandole el pago de una indemnizacion mensual durante un periodo determinado."
