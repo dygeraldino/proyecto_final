@@ -192,7 +192,7 @@ class Empleado(Persona):
     def calcular_comision(self) -> None:
         comision = 0
         for cliente in self.clientes:
-            for producto in cliente.__productos:
+            for producto in cliente.productos:
                 if producto.precio <= 3000000 or producto.precio >= 1000000:
                     comision += producto.precio*0.05
                 else:
