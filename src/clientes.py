@@ -1,6 +1,7 @@
 import tkinter as tk
 import util.generic as utl
 from tkinter import ttk
+from productos import *
 
 
 class Interfaz_clientes:

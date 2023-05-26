@@ -102,6 +102,3 @@ class Interfaz_usuario:
     def abrir_interfaz_clientes(self, user_empleado):
         self.master.destroy()  # Cerrar la interfaz actual
         interfaz_clientes = Interfaz_clientes(user_empleado)
-
-
-inter = Interfaz_usuario("mvegafuentes@sgarantizada.com.co")

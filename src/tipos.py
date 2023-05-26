@@ -77,9 +77,9 @@ def abrir_ventana_parametros(tipo_, email_empleado):
             add_producto(seguro, empleado_cedula)
             messagebox.showinfo(message="Cliente agregado exitosamente",
                                 title="Cliente")
-        except ClienteExistente:
+        except ClienteException as ex:
             messagebox.showerror(
-                message="El cliente ya existe en la base de datos", title="Error")
+                message=f"{ex.__class__.__name__}: {ex}", title="Error")
 
         # Cerrar la nueva ventana
         nueva_ventana.destroy()

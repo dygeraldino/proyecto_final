@@ -8,7 +8,7 @@ with open(f'src/data/empleados.json', 'r') as file:
     data = json.load(file)
 
 
-class ClienteExistente(Exception):
+class ClienteException(Exception):
     pass
 
 
@@ -212,7 +212,7 @@ class Seguro(ABC):
         cliente.productos.append(self)
         self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
-        self.pago = false
+        self.pago = False
 
     @property
     def precio(self) -> float:
