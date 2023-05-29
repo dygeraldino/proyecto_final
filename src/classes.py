@@ -218,7 +218,6 @@ class Seguro(ABC):
         cliente.productos.append(self)
         self._tipo = tipo
         self._id = 100*random.randint(0, 99)+100000*random.randint(0, 99)
-        self.pago = False
 
     @property
     def precio(self) -> float:
