@@ -20,7 +20,7 @@ class App:
             Interfaz(usu)
         else:
             messagebox.showerror(
-                message="La contraseña no es correcta", title="Mensaje")
+                message="Usuario o contraseña incorrectos", title="Mensaje")
 
     def __init__(self):
         self.ventana = tk.Tk()

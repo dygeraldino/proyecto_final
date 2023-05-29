@@ -36,6 +36,7 @@ class Aseguradora:
         self.__empleados = empleado
 
     def GananciaTotal(self) -> float:
+        total = 0
         for cliente in self.clientes:
             for producto in cliente.productos:
                 total += producto.precio
@@ -43,6 +44,7 @@ class Aseguradora:
 
     def TotalAsegurado(self) -> float:
         # sumatoria de el valor asegurado de todos los seguros de todos los clientes
+        total = 0
         for cliente in self.clientes:
             for producto in cliente.productos:
                 total += producto.valor_asegurado
