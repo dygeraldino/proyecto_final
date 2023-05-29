@@ -3,13 +3,20 @@ import util.generic as utl
 from tkinter import ttk
 
 
+def volver(ventana, empleado):
+    ventana.destroy()
+    from clientes import Interfaz_clientes
+    interfaz = Interfaz_clientes(empleado)
+
+
 class Interfaz_productos:
-    def __init__(self, cliente):
+    def __init__(self, cliente, empleado):
         self.cliente = cliente
+        self.empleado = empleado
         self.master = tk.Tk()
         self.master.geometry('800x500')
         self.master.title("Info Productos")
-        self.master.config(bg='#B4DEFF')
+        self.master.config(bg='#ffffff')
         self.master.resizable(width=0, height=0)
         utl.centrar_ventana(self.master, 800, 500)
 
@@ -18,7 +25,7 @@ class Interfaz_productos:
             "tipo", "precio", "valor_asegurado", "cobertura"))
         self.style = ttk.Style()
         self.style.configure("Treeview.Heading", font=(
-            'Times', 15, 'bold'), foreground='#000000', background='#B4DEFF')
+            'Times', 15, 'bold'), foreground='#000000', background='#ffffff')
         self.style.configure("Treeview", background="white",
                              fieldbackground="white")
         self.style.map("Treeview", background=[('alternate', '#F5F5F5')])
@@ -51,5 +58,10 @@ class Interfaz_productos:
         # Ajustar el tamaño de las columnas del Treeview
         self.master.grid_columnconfigure(0, weight=1)
         self.master.grid_rowconfigure(0, weight=1)
+
+        # Agregar botón "Volver"
+        volver_button = ttk.Button(
+            self.master, text="Volver", command=lambda: volver(self.master, self.empleado))
+        volver_button.grid(row=2, column=0, pady=10)
 
         self.master.mainloop()
