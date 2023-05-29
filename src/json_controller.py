@@ -57,7 +57,7 @@ def add_cliente(cliente: Cliente, cedula_empleado: int) -> None/bool:
         data1 = json.load(file1)
     if f'{cliente.cedula}' in data[f'{cedula_empleado}']['clientes']:
         raise ClienteException(
-            f"Ya existe un cliente con cedula {cliente.cedula} en la lista de clientes de otro empleado")
+            f"Ya existe un cliente con cedula {cliente.cedula} en su lista de clientes, agregue el producto")
     elif f'{cliente.cedula}' in data1:
         raise ClienteException(
             f"Ya existe el cliente con cedula {cliente.cedula} en la base de datos, agregue el producto")
