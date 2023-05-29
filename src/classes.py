@@ -12,6 +12,10 @@ class ClienteException(Exception):
     pass
 
 
+class ProductoException(Exception):
+    pass
+
+
 class Aseguradora:
     def __init__(self, nombre: str):
         self.__clientes: List["Cliente"] = []

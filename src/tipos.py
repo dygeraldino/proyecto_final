@@ -28,50 +28,187 @@ def abrir_ventana_parametros(tipo_, email_empleado):
     # Función para guardar los datos ingresados y cerrar la ventana
     def guardar_datos(tipo_):
         # Obtener los valores ingresados por el usuario
-        nombre = entry_nombre.get()
-        edad = int(entry_edad.get())
-        cedula = int(entry_cedula.get())
-        genero = entry_genero.get()
-        estado_civil = entry_estado_civil.get()
-        direccion1 = entry_direccion1.get()
-        telefono = entry_telefono.get()
-        correo = entry_correo.get()
-        peso = float(entry_peso.get())
-        estatura = float(entry_estatura.get())
-        valor_asegurado = float(entry_valor_asegurado.get())
+        try:
+            nombre = entry_nombre.get()
+            if len(nombre) == 0:
+                raise ClienteException("El nombre no puede estar vacío")
+            edad = int(entry_edad.get())
+            if edad < 18:
+                raise ClienteException(
+                    f"Los menores de edad no pueden comprar un seguro de {tipo_}")
+            cedula = int(entry_cedula.get())
+            if cedula < 10000000:
+                raise ClienteException(
+                    "La cédula debe ser un número natural de al menos 8 dígitos")
+            genero = entry_genero.get()
+            if genero not in ["M", "F"]:
+                raise ClienteException(
+                    "El género debe ser M (Masculino) o F (Femenino)")
+            estado_civil = entry_estado_civil.get()
+            if estado_civil not in ["Soltero", "Casado", "Viudo", "Divorciado"]:
+                raise ClienteException(
+                    "El estado civil debe ser Soltero, Casado, Viudo o Divorciado")
+            direccion1 = entry_direccion1.get()
+            if len(direccion1) == 0:
+                raise ClienteException("La dirección no puede estar vacía")
+            telefono = entry_telefono.get()
+            if len(telefono) == 0:
+                raise ClienteException("El teléfono no puede estar vacío")
+            correo = entry_correo.get()
+            if len(correo) == 0:
+                raise ClienteException("El correo no puede estar vacío")
+            peso = float(entry_peso.get())
+            if peso < 0 or peso > 500:
+                raise ClienteException(
+                    "El peso debe ser un número real positivo menor a 500 kilogramos")
+            estatura = float(entry_estatura.get())
+            if estatura < 0 or estatura > 3:
+                raise ClienteException(
+                    "La estatura debe ser un número real positivo menor a 3 metros")
+            valor_asegurado = float(entry_valor_asegurado.get())
+            if valor_asegurado < 20000000 or valor_asegurado > 500000000:
+                raise ClienteException(
+                    "El valor asegurado debe ser mayor a 20 millones y menor de 500 millones")
+        except ValueError:
+            messagebox.showerror(
+                message=f"Recuerde que la edad y la cedula son números naturales \nPor otra parte el precio, la estatura y el valor asegurado son reales positivos", title="Error de valor")
+            return False
+        except ClienteException as ex:
+            messagebox.showerror(
+                message=f"{ex.__class__.__name__}: {ex}", title="Error")
+            return False
 
         # Crear objeto Cliente con los datos ingresados
         cliente = Cliente(nombre, edad, cedula, genero, estado_civil,
                           direccion1, telefono, correo, peso, estatura)
+        cliente.valor_asegurado = valor_asegurado
 
         # Dependiendo del tipo de seguro, obtener los valores adicionales
         if tipo_ == "SOAT":
-            placa = entry_placa.get()
-            modelo = entry_modelo.get()
-            marca = entry_marca.get()
-            color = entry_color.get()
+            try:
+                placa = entry_placa.get()
+                if len(placa) == 0:
+                    raise ProductoException(
+                        "La placa del vehículo no puede estar vacía")
+                if len(placa) != 6:
+                    raise ProductoException(
+                        "La placa del vehículo debe tener 6 caracteres")
+                modelo = entry_modelo.get()
+                if len(modelo):
+                    raise ProductoException(
+                        "El modelo del vehículo no puede estar vacío")
+                marca = entry_marca.get()
+                if len(marca) == 0:
+                    raise ProductoException(
+                        "La marca del vehículo no puede estar vacía")
+                color = entry_color.get()
+                if len(color) == 0:
+                    raise ProductoException(
+                        "El color del vehículo no puede estar vacío")
+            except ProductoException as ex:
+                messagebox.showerror(
+                    message=f"{ex.__class__.__name__}: {ex}", title="Error")
+                return False
             seguro = SOAT(cliente, placa, modelo, marca, color)
         elif tipo_ == "Vida":
-            precio = float(entry_precio.get())
+            try:
+                precio = float(entry_precio.get())
+                if precio < 100000 or precio > 3000000:
+                    raise ProductoException(
+                        "El precio (cuota mensual) debe ser mayor a 100 mil y menor a 3 millones")
+            except ValueError:
+                messagebox.showerror(
+                    message=f"Recuerde que el precio debe ser un número real positivo", title="Error de valor")
+                return False
+            except ProductoException as ex:
+                messagebox.showerror(
+                    message=f"{ex.__class__.__name__}: {ex}", title="Error")
+                return False
             seguro = Vida(precio, cliente)
         elif tipo_ == "Hogar":
-            precio = float(entry_precio.get())
-            direccion = entry_direccion.get()
-            metros_cuadrados = float(entry_metros_cuadrados.get())
-            numero_habitaciones = int(entry_numero_habitaciones.get())
-            numero_banos = int(entry_numero_banos.get())
-            valor = float(entry_valor.get())
+            try:
+                precio = float(entry_precio.get())
+                if precio < 100000 or precio > 3000000:
+                    raise ProductoException(
+                        "El precio (cuota mensual) debe ser mayor a 100 mil y menor a 3 millones")
+                direccion = entry_direccion.get()
+                if len(direccion) == 0:
+                    raise ClienteException(
+                        "La dirección de la casa no puede estar vacía")
+                metros_cuadrados = float(entry_metros_cuadrados.get())
+                if metros_cuadrados < 0:
+                    raise ProductoException(
+                        "Los metros cuadrados deben ser un número real positivo")
+                numero_habitaciones = int(entry_numero_habitaciones.get())
+                if numero_habitaciones < 0:
+                    raise ProductoException(
+                        "El número de habitaciones debe ser mayor o igual a 0")
+                numero_banos = int(entry_numero_banos.get())
+                if numero_banos < 0:
+                    raise ProductoException(
+                        "El número de baños debe ser mayor o igual a 0")
+                valor = float(entry_valor.get())
+                if valor < 0:
+                    raise ProductoException(
+                        "El valor de la casa debe ser un número real positivo")
+            except ValueError:
+                messagebox.showerror(
+                    message=f"Recuerde que el precio, los metros cuadrados, el número de habitaciones (entero), el número de baños (entero) y el valor de la casa deben ser números reales positivos", title="Error de valor")
+                return False
+            except ProductoException as ex:
+                messagebox.showerror(
+                    message=f"{ex.__class__.__name__}: {ex}", title="Error")
+                return False
             seguro = Hogar(precio, cliente, direccion, metros_cuadrados,
                            numero_habitaciones, numero_banos, valor)
         elif tipo_ == "Automovil":
-            precio = float(entry_precio.get())
-            placa = entry_placa.get()
-            modelo = entry_modelo.get()
-            marca = entry_marca.get()
-            color = entry_color.get()
+            try:
+                precio = float(entry_precio.get())
+                if precio < 100000 or precio > 3000000:
+                    raise ProductoException(
+                        "El precio (cuota mensual) debe ser mayor a 100 mil y menor a 3 millones")
+                placa = entry_placa.get()
+                if len(placa) == 0:
+                    raise ProductoException(
+                        "La placa del vehículo no puede estar vacía")
+                if len(placa) != 6:
+                    raise ProductoException(
+                        "La placa del vehículo debe tener 6 caracteres")
+                modelo = entry_modelo.get()
+                if len(modelo) == 0:
+                    raise ProductoException(
+                        "El modelo del vehículo no puede estar vacío")
+                marca = entry_marca.get()
+                if len(marca) == 0:
+                    raise ProductoException(
+                        "La marca del vehículo no puede estar vacía")
+                color = entry_color.get()
+                if len(color) == 0:
+                    raise ProductoException(
+                        "El color del vehículo no puede estar vacío")
+            except ValueError:
+                messagebox.showerror(
+                    message=f"Recuerde que el precio debe ser un número real positivo", title="Error de valor")
+                return False
+            except ProductoException as ex:
+                messagebox.showerror(
+                    message=f"{ex.__class__.__name__}: {ex}", title="Error")
+                return False
             seguro = Automovil(precio, cliente, placa, modelo, marca, color)
         elif tipo_ == "Desempleo":
-            precio = float(entry_precio.get())
+            try:
+                precio = float(entry_precio.get())
+                if precio < 100000 or precio > 3000000:
+                    raise ProductoException(
+                        "El precio (cuota mensual) debe ser mayor a 100 mil y menor a 3 millones")
+            except ValueError:
+                messagebox.showerror(
+                    message=f"Recuerde que el precio debe ser un número real positivo", title="Error de valor")
+                return False
+            except ProductoException as ex:
+                messagebox.showerror(
+                    message=f"{ex.__class__.__name__}: {ex}", title="Error")
+                return False
             seguro = Desempleo(precio, cliente)
 
         cliente.productos.append(seguro)
@@ -83,7 +220,7 @@ def abrir_ventana_parametros(tipo_, email_empleado):
             add_cliente(cliente, empleado_cedula)
             add_producto(seguro, empleado_cedula)
             messagebox.showinfo(message="Cliente agregado exitosamente",
-                                title="Cliente")
+                                title="Vendido")
         except ClienteException as ex:
             messagebox.showerror(
                 message=f"{ex.__class__.__name__}: {ex}", title="Error")
@@ -107,7 +244,7 @@ def abrir_ventana_parametros(tipo_, email_empleado):
     entry_cedula = tk.Entry(nueva_ventana, font=('Times', 12), width=30)
     entry_cedula.grid(row=3, column=2)
 
-    label_genero = tk.Label(nueva_ventana, text="Género:", font=(
+    label_genero = tk.Label(nueva_ventana, text="Género (M o F):", font=(
         'Times', 14), fg="#666a88", bg='#E6F0FF', anchor="w")
     label_genero.grid(row=4, column=1, sticky="e")
     entry_genero = tk.Entry(nueva_ventana, font=('Times', 12), width=30)
@@ -137,13 +274,13 @@ def abrir_ventana_parametros(tipo_, email_empleado):
     entry_correo = tk.Entry(nueva_ventana, font=('Times', 12), width=30)
     entry_correo.grid(row=8, column=2)
 
-    label_peso = tk.Label(nueva_ventana, text="Peso:", font=(
+    label_peso = tk.Label(nueva_ventana, text="Peso (kg):", font=(
         'Times', 14), fg="#666a88", bg='#E6F0FF', anchor="w")
     label_peso.grid(row=9, column=1, sticky="e")
     entry_peso = tk.Entry(nueva_ventana, font=('Times', 12), width=30)
     entry_peso.grid(row=9, column=2)
 
-    label_estatura = tk.Label(nueva_ventana, text="Estatura:", font=(
+    label_estatura = tk.Label(nueva_ventana, text="Estatura (m):", font=(
         'Times', 14), fg="#666a88", bg='#E6F0FF', anchor="w")
     label_estatura.grid(row=10, column=1, sticky="e")
     entry_estatura = tk.Entry(nueva_ventana, font=('Times', 12), width=30)
@@ -269,7 +406,7 @@ def abrir_ventana_parametros(tipo_, email_empleado):
 
     # Botón para guardar los datos ingresados
     boton_guardar = tk.Button(
-        nueva_ventana, text="Guardar", font=(
+        nueva_ventana, text="Vender", font=(
             'Times', 15), bg='#3a7ff6', bd=0, fg="#fff", command=lambda: guardar_datos(tipo_))
     boton_guardar.grid(row=11, column=2, columnspan=1,
                        pady=15, padx=10, sticky="nsew")
