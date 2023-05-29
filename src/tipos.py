@@ -67,7 +67,7 @@ def abrir_ventana_parametros(tipo_, email_empleado):
                     raise ProductoException(
                         "La placa del vehículo debe tener 6 caracteres")
                 modelo = entry_modelo.get()
-                if len(modelo):
+                if len(modelo) == 0:
                     raise ProductoException(
                         "El modelo del vehículo no puede estar vacío")
                 marca = entry_marca.get()
@@ -209,9 +209,9 @@ def abrir_ventana_parametros(tipo_, email_empleado):
                 raise ClienteException(
                     f"Los menores de edad no pueden comprar un seguro de {tipo_}")
             cedula = int(entry_cedula.get())
-            if cedula < 10000000:
+            if cedula < 1000000:
                 raise ClienteException(
-                    "La cédula debe ser un número natural de al menos 8 dígitos")
+                    "La cédula debe ser un número natural de al menos 7 dígitos")
             genero = entry_genero.get()
             if genero not in ["M", "F"]:
                 raise ClienteException(
@@ -265,7 +265,7 @@ def abrir_ventana_parametros(tipo_, email_empleado):
                     raise ProductoException(
                         "La placa del vehículo debe tener 6 caracteres")
                 modelo = entry_modelo.get()
-                if len(modelo):
+                if len(modelo) == 0:
                     raise ProductoException(
                         "El modelo del vehículo no puede estar vacío")
                 marca = entry_marca.get()
