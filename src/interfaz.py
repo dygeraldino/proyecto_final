@@ -21,9 +21,13 @@ class Interfaz:
         utl.centrar_ventana(self.master, 800, 500)
 
         # Crear el título
-        title = tk.Label(self.master, text="Seguridad garantizada",
-                         font=('Times', 30), fg="#666a88")
-        title.grid(row=0, column=0, columnspan=2, pady=20)
+        title_frame = tk.Frame(self.master, bg="#3a7ff6")
+        title_frame.grid(row=0, column=0, columnspan=2, pady=20, sticky="we")
+        title_frame.grid_columnconfigure(0, weight=1)
+        title_frame.grid_rowconfigure(0, weight=1)
+        title = tk.Label(title_frame, text="Seguridad garantizada",
+                         font=('Times', 30), fg="#fff", bg="#3a7ff6")
+        title.grid(row=0, column=0, padx=20, pady=20)
 
         # Crear botones
         buttonUsuario = tk.Button(self.master, text="Usuario", font=(
