@@ -4,13 +4,19 @@ from tkinter import ttk
 from productos import *
 
 
+def volver(ventana, email_empleado):
+    ventana.destroy()
+    from usuario import Interfaz_usuario
+    interfaz = Interfaz_usuario(email_empleado)
+
+
 class Interfaz_clientes:
     def __init__(self, empleado):
         self.empleado = empleado
         self.master = tk.Tk()
         self.master.geometry('800x500')
         self.master.title("Info Clientes")
-        self.master.config(bg='#B4DEFF')
+        self.master.config(bg='#ffffff')
         self.master.resizable(width=0, height=0)
         utl.centrar_ventana(self.master, 800, 500)
 
@@ -19,7 +25,7 @@ class Interfaz_clientes:
             "nombre", "edad", "genero", "estado_civil", "direccion", "telefono", "correo", "peso", "estatura", "productos"))
         self.style = ttk.Style()
         self.style.configure("Treeview.Heading", font=(
-            'Times', 15, 'bold'), foreground='#000000', background='#B4DEFF')
+            'Times', 15, 'bold'), foreground='#000000', background='#ffffff')
         self.style.configure("Treeview", background="white",
                              fieldbackground="white")
         self.style.map("Treeview", background=[('alternate', '#F5F5F5')])
@@ -61,8 +67,13 @@ class Interfaz_clientes:
         self.master.grid_columnconfigure(0, weight=1)
         self.master.grid_rowconfigure(0, weight=1)
 
+        # Agregar botón "Volver"
+        volver_button = ttk.Button(
+            self.master, text="Volver", command=lambda: volver(self.master, self.empleado.correo))
+        volver_button.grid(row=2, column=0, pady=10)
+
         # Asociar función al evento de clic en el botón
-        self.treeview.tag_configure("button", background="#B4DEFF")
+        self.treeview.tag_configure("button", background="#ffffff")
         self.treeview.bind("<Button-1>", self.on_treeview_click)
 
         self.master.mainloop()
@@ -76,4 +87,4 @@ class Interfaz_clientes:
                 index = self.treeview.index(item_id)
                 cliente = self.empleado.clientes[index]
                 self.master.destroy()
-                inter = Interfaz_productos(cliente)
+                inter = Interfaz_productos(cliente, self.empleado)
